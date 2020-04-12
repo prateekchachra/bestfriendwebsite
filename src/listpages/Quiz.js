@@ -11,11 +11,44 @@ export default class Quiz extends Component {
             questionsList: questions,
             askedQuestions: [],
             skippedQuestions: [],
-            answers: []
+            answers: [],
+            activeItem: 1,
+            width: 0, height: 0, 
 
         }
     }
 
+      
+      componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions = () =>  {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+      }
+    
+      receiveAnswerFromClickEvent= (id, answerId) => {
+        const {answers, questionsList, askedQuestions, activeItem} = this.state;
+
+        askedQuestions.push(questionsList[0])
+        if(questionsList.length === 1 || activeItem === 20){
+
+          //SUBMIT LOGIC
+          return;
+      }
+
+        let updatedQuestionsList = questionsList.slice(1)
+        
+        answers.push({question: id,answer: answerId})
+        this.setState({answers, questionsList: updatedQuestionsList,
+        askedQuestions, activeItem: activeItem + 1})
+
+      }
     handleClick = () => {
 
       
@@ -32,48 +65,35 @@ export default class Quiz extends Component {
     }
     
     render(){
-        const {questionsList, skippedQuestions} = this.state;
-         
+        const {questionsList, width, activeItem} = this.state;
+      const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
         return(
-           <Box>
+           <Box style={{
+               width: width/2
+           }}>
 
             <div className='circles' style={{marginTop: 24}}>
                     <ul className="circles">
-                            <li id='circle_1' className="circle" />
-                            <li id='circle_2' className="circle" />
-                            <li id='circle_3' className="circle" />
-                            <li id='circle_4' className="circle" />
-                            <li id='circle_5' className="circle" />
-                            <li id='circle_6' className="circle" />
-                            <li id='circle_7' className="circle" />
+                      {arr.slice(0,7).map((item, index )=> (
+                            <li id={'circle_' + item }  key={`number_${item}`} className="circle" />
+                      ))}
+                        
                     </ul>
             </div>
                <div style={{marginBottom: 24, marginTop: 8}}>
                 <ul className="list">
-                    <li id='number_1' className="list-item active">1</li>
-                    <li id='number_2' className="list-item">2</li>
-                    <li className="list-item" id='number_3'>3</li>
-                    <li className="list-item" id='number_4'>4</li>
-                    <li className="list-item" id='number_5'>5</li>
-          
-                    <li className="list-item" id='number_6'>6</li>
-                    <li className="list-item" id='number_7'>7</li>
-                    <li className="list-item" id='number_8'>8</li>
-                    <li className="list-item" id='number_9'>9</li>
-                    <li className="list-item" id='number_10'>10</li>
-                
-                    <li className="list-item" id='number_11'>11</li>
-                    <li className="list-item" id='number_12'>12</li>
-                    <li className="list-item" id='number_13'>13</li>
-                    <li className="list-item" id='number_14'>14</li>
-                    <li className="list-item" id='number_15'>15</li>
+
+                  {arr.slice(0,15).map((item, index) => {
+                    let calculatedClassName = item === activeItem  ? 'list-item active' :  'list-item'; 
+                    return(  <li id={`number_${item}`}  key={`number_${item}`}  className={calculatedClassName}>{item}</li>)
+                  })}
                     </ul>
-            <ul className="list">
-                    <li className="list-item" id='number_16'>16</li>
-                    <li className="list-item" id='number_17'>17</li>
-                    <li className="list-item" id='number_18'>18</li>
-                    <li className="list-item" id='number_19'>19</li>
-                    <li className="list-item" id='number_20'>20</li>
+                    <ul className="list">
+                    {arr.slice(15).map((item, index) => {
+                    let calculatedClassName = item === activeItem  ? 'list-item active' :  'list-item'; 
+                    return(  <li id={`number_${item}`} key={`number_${item}`} className={calculatedClassName}>{item}</li>)
+                  })}
                 </ul>
             
             <div className='text-center' style={{marginTop: 36}}>
@@ -87,7 +107,7 @@ export default class Quiz extends Component {
 
             <Question 
             activeQuestion={questionsList[0]}
-            
+            sendBackAnswer={this.receiveAnswerFromClickEvent}
             />
            </Box>
 

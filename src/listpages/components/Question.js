@@ -6,21 +6,42 @@ class Question extends Component {
 
     constructor(props){
         super(props)
-
+       this.state = { width: 0, height: 0, }
     }
 
 
+         
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions = () =>  {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+      }
+
+
     renderOption = (option) => ( 
-        <a  href="" onClick={() => {
-            console.log(option)
-        }}>
+
         <div 
-        className='question-box card' style={{backgroundColor: '#f6f6f6',
-   }} >
+        className='question-box'
+        onClick={() => {
+            const {optionId} = option;
+            const {sendBackAnswer, activeQuestion} = this.props;
+            const {id} = activeQuestion;
+     
+            sendBackAnswer(id, optionId)
+
+        }}>
         <img style={{
             borderRadius: 15,
             marginTop: 14,
-          
+          width: this.state.width/5,
+          height: 220
         }} src={option.image} />
         <p style={{
               paddingBottom: 8,
@@ -28,7 +49,7 @@ class Question extends Component {
         }}>{option.title}</p>
 
         </div>
-        </a>)
+   )
 
     render() {
 
