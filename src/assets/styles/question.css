@@ -1,0 +1,18 @@
+.question-box {
+    border: solid #a0a0a0;
+    border-width: 1px 1px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.question-box:active{
+
+    background-color: darkolivegreen;
+}
+
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+}
