@@ -8,6 +8,7 @@ import store from './redux/store'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import Header from './components/main/Header';
+import Footer from './components/main/Footer';
 
 const RouterComponent = () => (
   <Router>
@@ -16,6 +17,7 @@ const RouterComponent = () => (
       <Route exact path="/" component={App} />
       <Route path="/:language/quiz" component={Quiz} />
     </Switch>
+    <Footer />
   </Router>
 )
 

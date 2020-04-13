@@ -1,14 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import Header from './components/main/Header';
 import Box from './components/main/Box';
-
+import {saveName, changeLanguage} from './listpages/actions'
  class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { width: 0, height: 0, language:'en' };
+    this.state = { width: 0, height: 0, language:'en', name: '' };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
   
@@ -27,11 +28,13 @@ import Box from './components/main/Box';
 
 
   onChange = (event) => {
-    this.setState({language:event.target.value})
+    const{value} = event.target
+    this.props.changeLanguage(value)
+    this.setState({language: value})
   }
   render(){
 
-    const {width, height, language} = this.state;
+    const {width, height, language, name} = this.state;
   return (
     <div className="App">
      <Box style={{padding: 20, width: width/2}}>
@@ -43,7 +46,7 @@ import Box from './components/main/Box';
        </p>
       <form>
       <div className="form-group">
-          <label for="exampleInputEmail1" className='font-weight-bold'  style={{
+          <label for="nameInput" className='font-weight-bold'  style={{
          fontSize: 20
        }}>Select Language :</label>
           <select className="browser-default custom-select" onChange={this.onChange} value={language}>
@@ -51,34 +54,35 @@ import Box from './components/main/Box';
             </select>
         </div>
       <div className="form-group">
-          <label className='font-weight-bold' for="exampleInputEmail1" style={{
+          <label className='font-weight-bold' for="nameInput" style={{
             fontSize: 20
           }}>Enter your Full Name :</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name" />
+          <input type="name" className="form-control" id="nameInput"
+          onChange={(event) => this.setState({name: event.target.value})}
+          value={name}
+          aria-describedby="emailHelp" placeholder="Full Name" />
        </div>
-      <Link to={`/${language}/quiz`}>
-       <button type="button" className="btn btn-block" style={{
+      <Link to={location => {
+     
+        return `/${language}/quiz`;
+        
+        }}>
+       <button type="button" onClick={() => this.props.saveName(name)} className="btn btn-block" style={{
          backgroundColor: 'maroon',
          color: 'white'
        }}>Start</button>
        </Link>
       </form>
      </Box>
-     <div className="text-center" style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: width/2,
-        marginLeft: width/4
-     }}>
-      <p style={{marginTop: 24}}>
-      Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard.
-      </p>
-      </div>
+  
     </div>
   );
       
 }  
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  main: state.main
+})
+
+export default connect(mapStateToProps, {saveName, changeLanguage})(App);

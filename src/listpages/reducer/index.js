@@ -1,16 +1,24 @@
 
 
 
-const languageReducer = function (state = 0, action) {
+const mainReducer = function (state = {
+  name: '',
+  answers: [],
+  language: 'en',
+
+}, action) {
   switch (action.type) {
     case "CHANGE_LANGUAGE":
       {
-            const {language} = action.payload
-             return {...state, language};
+             return {...state, language: action.payload};
+    }
+    case "SAVE_NAME":
+      {
+             return {...state, name: action.payload};
     }
     default:
       return state;
   }
 };
 
-export default languageReducer;
+export default mainReducer;

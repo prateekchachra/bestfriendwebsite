@@ -41,7 +41,7 @@ class Question extends Component {
             borderRadius: 15,
             marginTop: 14,
           width: this.state.width/5,
-          height: 220
+          height: (this.state.width/5 * 0.8),
         }} src={option.image} />
         <p style={{
               paddingBottom: 8,

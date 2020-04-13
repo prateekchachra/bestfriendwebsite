@@ -1,9 +1,22 @@
 import React, {Component} from 'react';
 import Box from '../components/main/Box';
-import styles from '../assets/styles/quiz.css'
+import styles from '../assets/styles/quiz.css';
+import {firebaseConfig} from '../assets/firebase-config'
+import firebase from 'firebase'
+import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
+import { css } from "@emotion/core";
 import Question from './components/Question';
-export default class Quiz extends Component {
+import RingLoader from "react-spinners/RingLoader";
+import Circles from '../components/main/Circles';
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: white;
+`;
+
+class Quiz extends Component {
 
     constructor(props){
         super(props);
@@ -14,13 +27,16 @@ export default class Quiz extends Component {
             answers: [],
             activeItem: 1,
             width: 0, height: 0, 
-
+            saveQuizProcessing: false,
+            savedQuiz: false,
+            quizKey: ''
         }
     }
 
       
       componentDidMount() {
         this.updateWindowDimensions();
+       firebase.initializeApp(firebaseConfig);
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -36,15 +52,27 @@ export default class Quiz extends Component {
         const {answers, questionsList, askedQuestions, activeItem} = this.state;
 
         askedQuestions.push(questionsList[0])
-        if(questionsList.length === 1 || activeItem === 20){
+        answers.push({question: id,answer: answerId})
 
-          //SUBMIT LOGIC
+        if(activeItem === 20){
+
+      this.setState({saveQuizProcessing: true, askedQuestions, answers })
+      const databaseRef = firebase.database().ref();
+
+      const quizzesRef = databaseRef.child("quizzes")
+          
+        quizzesRef.push({
+          name: this.props.main.name,
+          answers,
+          scoreTable: []
+        }).then(snap => {
+          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key})
+        }).catch(err => console.log(err))
           return;
       }
 
         let updatedQuestionsList = questionsList.slice(1)
         
-        answers.push({question: id,answer: answerId})
         this.setState({answers, questionsList: updatedQuestionsList,
         askedQuestions, activeItem: activeItem + 1})
 
@@ -65,7 +93,8 @@ export default class Quiz extends Component {
     }
     
     render(){
-        const {questionsList, width, activeItem} = this.state;
+        const {questionsList, width, activeItem, saveQuizProcessing, savedQuiz, quizKey} = this.state;
+
       const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
         return(
@@ -73,14 +102,11 @@ export default class Quiz extends Component {
                width: width/2
            }}>
 
-            <div className='circles' style={{marginTop: 24}}>
-                    <ul className="circles">
-                      {arr.slice(0,7).map((item, index )=> (
-                            <li id={'circle_' + item }  key={`number_${item}`} className="circle" />
-                      ))}
-                        
-                    </ul>
-            </div>
+           {!saveQuizProcessing ?  (
+           
+           <>
+          {!savedQuiz ? (<>
+       <Circles />
                <div style={{marginBottom: 24, marginTop: 8}}>
                 <ul className="list">
 
@@ -109,9 +135,39 @@ export default class Quiz extends Component {
             activeQuestion={questionsList[0]}
             sendBackAnswer={this.receiveAnswerFromClickEvent}
             />
+            </>) : (
+              <div>
+                <p>{quizKey}</p>
+              </div>
+            )}
+            </>) : (
+
+              <div className='text-center' style={{
+                paddingBottom: 100
+              }}>
+                <p className='title' style={{
+                  marginTop: 14
+                }}>Please Wait...</p>
+                <p className='title'>Creating Quiz...</p>
+                <div style={{alignSelf: 'center'}}>
+                <RingLoader
+                css={override}
+                  size={120}
+                  color={"rgb(54,218,183)"}
+                  loading={true}
+                />
+                </div>
+              </div>
+            )}
            </Box>
 
         );
         
     }
 }
+
+const mapStateToProps = (state) => ({
+  main: state.main
+})
+
+export default connect(mapStateToProps, {})(Quiz)

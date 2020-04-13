@@ -6,6 +6,11 @@
     padding: 2px;
 }
 
+.title{
+    color: #4a4a4a;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 .active, .header-text{
     color: white;
@@ -20,40 +25,4 @@
     margin-bottom: -2px;
     overflow: hidden;
     text-align: center;
-}
-.circles{
-    list-style-type: none;
-    margin-bottom: -2px;
-    overflow: hidden;
-    text-align: center;
-}
-
-.circle{
-    height:30px;
-    width: 30px;
-    display: inline-block;
-    border-radius: 15px;
-    margin-left: 10px;
-}
-
-#circle_1{
-    background-color: black;
-}
-#circle_2{
-    background-color: red;
-}
-#circle_3{
-    background-color: turquoise;
-}
-#circle_4{
-    background-color: darkblue;
-}
-#circle_5{
-    background-color: orange;
-}
-#circle_6{
-    background-color: purple;
-}
-#circle_7{
-    background-color: darkolivegreen;
 }

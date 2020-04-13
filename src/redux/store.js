@@ -1,7 +1,10 @@
-import { createStore } from 'redux';
-import languageReducer from '../listpages/reducer';
 
+import {combineReducers, createStore, applyMiddleware} from 'redux';
+import reduxThunk from 'redux-thunk';
+import mainReducer from '../listpages/reducer';
 
-let store = createStore(languageReducer);
+const store = createStore(combineReducers({
+    main: mainReducer
+  }), {}, applyMiddleware(reduxThunk));
 
 export default store;
