@@ -1,7 +1,12 @@
 
+* {
+    margin: 0;
+    padding: 0;
+  }
+
 .circles{
     list-style-type: none;
-    margin-bottom: -2px;
+    margin-bottom: 4px;
     overflow: hidden;
     text-align: center;
 }

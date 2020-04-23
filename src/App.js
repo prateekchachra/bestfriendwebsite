@@ -5,26 +5,14 @@ import {connect} from 'react-redux'
 import Header from './components/main/Header';
 import Box from './components/main/Box';
 import {saveName, changeLanguage} from './listpages/actions'
+import Circles from './components/main/Circles';
  class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { width: 0, height: 0, language:'en', name: '' };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    this.state = {language:'en', name: '', errors: {} };
   }
   
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-  
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-  
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
 
 
   onChange = (event) => {
@@ -34,17 +22,32 @@ import {saveName, changeLanguage} from './listpages/actions'
   }
   render(){
 
-    const {width, height, language, name} = this.state;
+    const {language, name, errors} = this.state;
   return (
-    <div className="App">
-     <Box style={{padding: 20, width: width/2}}>
+    <div className="App container">
+      <div className='row'>
+     <div className="col-md-4 col-sm-3"></div>
+     <Box style={{padding: 20}}>
+     <Circles />
        <p className='text-center font-weight-bold'
        style={{
          fontSize: 24
        }}>
          Super dare of 2020
        </p>
-      <form>
+
+      <form onSubmit={(event) => {
+         event.preventDefault();
+        if(name === ''){
+          errors['name'] = 'Name cannot be empty!'
+          this.setState({errors})
+        }
+        else {
+
+        this.props.saveName(name)
+        this.props.history.push(`/${language}/quiz`)
+        }
+      }}>
       <div className="form-group">
           <label for="nameInput" className='font-weight-bold'  style={{
          fontSize: 20
@@ -58,23 +61,23 @@ import {saveName, changeLanguage} from './listpages/actions'
             fontSize: 20
           }}>Enter your Full Name :</label>
           <input type="name" className="form-control" id="nameInput"
-          onChange={(event) => this.setState({name: event.target.value})}
+          onChange={(event) => this.setState({name: event.target.value, errors: {}})}
           value={name}
           aria-describedby="emailHelp" placeholder="Full Name" />
        </div>
-      <Link to={location => {
-     
-        return `/${language}/quiz`;
-        
-        }}>
-       <button type="button" onClick={() => this.props.saveName(name)} className="btn btn-block" style={{
+       {errors['name'] && <p style={{
+         color: 'red',
+         fontSize: 18
+       }}>Name cannot be empty</p>}
+       <button type="submit" value="Submit" className="btn btn-block" style={{
          backgroundColor: 'maroon',
          color: 'white'
        }}>Start</button>
-       </Link>
+  
       </form>
      </Box>
-  
+     <div className="col-md-4 col-sm-3"></div>
+     </div>
     </div>
   );
       

@@ -25,17 +25,20 @@ class Footer extends Component {
     render() {
         const {width} = this.state;
         return (
-            <div>
-            <div className="text-center" style={{
+            <div className='container'>
+              <div className='row'>
+              <div className='col-xs-4 col-sm-3 col-lg-4 '></div>
+            <div className="text-center col-xs-4 col-sm-6 col-lg-4" style={{
                     flex: 1,
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: width/2,
-                    marginLeft: width/4
+                  
                 }}>
                 <p style={{marginTop: 24}}>
                 Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard.
                 </p>
+                </div>
+                <div className='col-xs-4 col-sm-3 col-lg-4 '></div>
                 </div>
                 <div style={{
                     width,
@@ -44,11 +47,18 @@ class Footer extends Component {
                     marginBottom: 24,
                     marginTop: 200
                 }}></div>
-                <div className='text-center'>
+                <div className='row'>
+              <div className='col-xs-4 col-sm-3 col-lg-4'></div>
+               
+
+                <div className='text-center col-xs-4 col-sm-6 col-lg-4'>
 
                 <p>Contact</p>
                 </div>
+                <div className='text-center col-xs-4 col-sm-3 col-lg-4'>
+                </div>
              
+            </div>
             </div>
         );
     }

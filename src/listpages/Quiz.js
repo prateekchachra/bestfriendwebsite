@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
 import {firebaseConfig} from '../assets/firebase-config'
+import {OverlayTrigger, Popover} from 'react-bootstrap';
 import firebase from 'firebase'
 import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
@@ -16,6 +17,15 @@ const override = css`
   border-color: white;
 `;
 
+const popover = (
+  <Popover id="popover-positioned-bottom"
+  placement={'bottom'}>
+  
+    <Popover.Content>
+     Copied successfully!
+    </Popover.Content>
+  </Popover>
+);
 class Quiz extends Component {
 
     constructor(props){
@@ -46,6 +56,13 @@ class Quiz extends Component {
       
       updateWindowDimensions = () =>  {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
+      }
+
+      copyToClipboard = () => {
+        const el = this.textArea
+        el.select()
+        document.execCommand("copy")
+        this.setState({copySuccess: true})
       }
     
       receiveAnswerFromClickEvent= (id, answerId) => {
@@ -98,15 +115,18 @@ class Quiz extends Component {
       const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
         return(
-           <Box style={{
-               width: width/2
+          <div className='container'>
+            <div className='row'>
+               <div className='col-xs-2 col-sm-2 col-lg-2 '></div>
+           <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container' style={{
+           
            }}>
-
+              <Circles />
            {!saveQuizProcessing ?  (
            
            <>
           {!savedQuiz ? (<>
-       <Circles />
+      
                <div style={{marginBottom: 24, marginTop: 8}}>
                 <ul className="list">
 
@@ -136,9 +156,50 @@ class Quiz extends Component {
             sendBackAnswer={this.receiveAnswerFromClickEvent}
             />
             </>) : (
-              <div>
-                <p>{quizKey}</p>
+              <div className='text-center'>
+                <p style={{
+
+                  color: 'maroon',
+                  fontSize: 24,
+                  fontWeight: 'bold'
+                }}>Your Challenge is Ready</p>
+                <p style={{
+                  color: '#4a4a4a',
+                  fontSize: 18,
+                  fontWeight: 'bold'
+                }}>Share this link with your friends</p>
+
+                <textarea
+                onChange={(event) => {}}
+                ref={(textarea) => this.textArea = textarea}
+                value={`${window.location.href}/${quizKey.slice(1)}`}
+                className='form-control' />
+                <div className='text-center' style={{marginTop: 12, marginBottom: 12}}>
+
+                <OverlayTrigger trigger="click" placement="right" overlay={popover}
+                 trigger="click"
+                 key={'bottom'}
+                 placement={'bottom'}>
+                    <button type="button" className="btn btn-center"
+                    
+                    style={{
+                        backgroundColor: 'maroon',
+                        color: 'white',
+                        textAlign: 'center'
+                    }} onClick={this.copyToClipboard}>Copy This Link</button>
+                  </OverlayTrigger>
+
+                  <div>
+
+
+                  </div>
+                    </div>
+               
+
+
               </div>
+
+
             )}
             </>) : (
 
@@ -160,7 +221,9 @@ class Quiz extends Component {
               </div>
             )}
            </Box>
-
+           <div className='col-xs-2 col-sm-2 col-lg-2'></div>
+           </div>
+           </div>
         );
         
     }
