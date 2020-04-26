@@ -199,7 +199,7 @@ class Quiz extends Component {
                 </div>
 
             <Question 
-            activeQuestion={questionsList[activeQuestion]}
+            activeQuestion={questionsList[activeQuestion - 1]}
             answer={answers[activeItem - 1]}
             sendBackAnswer={this.receiveAnswerFromClickEvent}
             />

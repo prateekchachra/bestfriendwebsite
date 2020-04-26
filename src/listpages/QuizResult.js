@@ -81,8 +81,7 @@ class QuizResult extends Component {
                 {score.answers.map((item, index) => {
                     
 
-                    let activeQuestion = questions[item.question];
-                  
+                    let activeQuestion = questions[item.question - 1];
                     let answer = ''
                     let answerObj = activeQuestion.options.filter(option => option.optionId == item.answer)[0]
                     answer = answerObj ? answerObj.title : '';
