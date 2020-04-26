@@ -35,11 +35,28 @@ class Question extends Component {
       const {rightOption, isClicked} = this.state;
       
       const isRightOption = rightOption && rightOption === option.optionId
+
+      let effectiveBackgroundColor = '#fff';
+
+      let isWhiteBackground = false;
+      if(rightOption){
+        if(isRightOption) 
+        effectiveBackgroundColor = 'greenyellow'
+
+        else if(isClicked === option.optionId && !isRightOption) {
+          isWhiteBackground= true;
+          effectiveBackgroundColor = 'maroon'
+        }
+      }
+      else {
+        if(isClicked === option.optionId){
+          effectiveBackgroundColor = 'greenyellow'
+        }
+      }
       return( 
 
         <div 
-        style={{backgroundColor: isRightOption ?'maroon' : (isClicked
-         ===option.optionId  ? 'greenyellow' : '#fff') }}
+        style={{backgroundColor: effectiveBackgroundColor }}
         className='question-box'
         onClick={() => {
             const {optionId} = option;
@@ -68,7 +85,9 @@ class Question extends Component {
             }
 
         }}>
-        <img style={{
+        <img  
+        className='img-fluid'
+        style={{
             borderRadius: 15,
             marginTop: 14,
           width: this.state.width/5,
@@ -77,7 +96,8 @@ class Question extends Component {
         <p style={{
               paddingBottom: 8,
               marginTop: 8,
-              color: isRightOption ? 'white' : '#000'
+              width: this.state.width/5,
+              color: isWhiteBackground ? 'white' : '#000'
         }}>{option.title}</p>
 
         </div>

@@ -152,7 +152,7 @@ class Quiz extends Component {
             <div className='row'>
                <div className='col-xs-2 col-sm-2 col-lg-2 '></div>
            <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container' style={{
-           
+             paddingBottom: 14
            }}>
               <Circles />
            {!saveQuizProcessing ?  (
@@ -224,10 +224,10 @@ class Quiz extends Component {
                   </OverlayTrigger>
 
               
-                  <div class='row'>
-                    <div class='col-sm-6'>
+                  <div className='row'>
+                    <div className='col-sm-6'>
                     <a target='_blank'  
-                    href={`whatsapp://send?text=%F0%9F%A4%97 pratt has sent you *Super Dare of 2020* %F0%9F%A4%97 %0A%F0%9F%8E%AF *Take this DARE NOW* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
+                    href={`whatsapp://send?text=%F0%9F%A4%97 ${this.props.main.name} has sent you *Super Dare of 2020* %F0%9F%A4%97 %0A%F0%9F%8E%AF *Take this DARE NOW* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
                     backgroundColor: '#1cb06d',
                     color: 'white',
                     alignItems: 'center',
@@ -237,7 +237,7 @@ class Quiz extends Component {
                   style={{width: 18, marginRight: 4,marginBottom: 2}} />
                     WhatsApp Status</a>
                     </div>
-                    <div class='col-sm-6'>
+                    <div className='col-sm-6'>
                     <button type="button" className="btn btn-block insta-button" style={{
                 
                     color: 'white',

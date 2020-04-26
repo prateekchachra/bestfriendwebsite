@@ -26,8 +26,9 @@ import Circles from './components/main/Circles';
   return (
     <div className="App container">
       <div className='row'>
-     <div className="col-md-4 col-sm-3"></div>
-     <Box style={{padding: 20}}>
+     <div className="col-xs-2 col-sm-2 col-lg-2"></div>
+     <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container'
+      style={{padding: 20}}>
      <Circles />
        <p className='text-center font-weight-bold'
        style={{
@@ -76,7 +77,7 @@ import Circles from './components/main/Circles';
   
       </form>
      </Box>
-     <div className="col-md-4 col-sm-3"></div>
+     <div className='col-xs-2 col-sm-2 col-lg-2'></div>
      </div>
     </div>
   );

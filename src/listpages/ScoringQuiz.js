@@ -91,14 +91,14 @@ class Quiz extends Component {
                      else if(title.includes('are you')){
                          updatedTitle =  title.replace('are you','is ' + name)
                      }
-                     else if(title.includes('you')){
-                         updatedTitle =  title.replace('you', name)
+                     else if(title.includes('you ')){
+                         updatedTitle =  title.replace('you ', name + ' ')
                      }
-                     else if(title.includes('You')){
-                         updatedTitle =  title.replace('You', name)
+                     else if(title.includes('You ')){
+                         updatedTitle =  title.replace('You ', name + ' ')
                      }
-                    else if(title.includes('your')){
-                        updatedTitle =  title.replace('your', name + "/'s")
+                    else if(title.includes('your ')){
+                        updatedTitle =  title.replace('your ', name + "'s ")
                     }
                     else {
                         updatedTitle = title;
@@ -146,7 +146,7 @@ class Quiz extends Component {
            let netTotal = isRight ? totalScore + 1 : totalScore
           this.setState({totalScore: netTotal, calculateScoreProcessing: true})
 
-          scores.push({name: guestName, score:totalScore, answers: answersByGuest})
+          scores.push({name: guestName, score:netTotal, answers: answersByGuest})
             quizRef.update({
               scores
             }).then(snap => {

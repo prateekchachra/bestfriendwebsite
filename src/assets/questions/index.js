@@ -488,22 +488,22 @@ export const questions = [{
     title: 'Which animal do you dream to pet?',
     options: [
         {
-            title: '1 Billion Dollars',
+            title: 'Cat',
              optionId: 'a',
             image: require('../img/19/a.jpg')
         },
         {
-            title: 'Luxury Car',
+            title: 'Dog',
             optionId: 'b',
             image: require('../img/19/b.jpg')
         },
         {
-            title: 'King/Queen of the world',
+            title: 'Rabbit',
             optionId: 'c',
             image: require('../img/19/c.jpg')
         },
         {
-            title: 'Your love',
+            title: 'Hamster',
             optionId: 'd',
             image: require('../img/19/d.jpg')
         },
