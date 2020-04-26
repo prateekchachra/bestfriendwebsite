@@ -46,6 +46,9 @@ class QuizResult extends Component {
             })    
         }
     }
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
     goToQuiz = () => {
         const {match: {params}, history} = this.props;
 

@@ -92,7 +92,7 @@ class Quiz extends Component {
                          updatedTitle =  title.replace('You', name)
                      }
                     else if(title.includes('your')){
-                        updatedTitle =  title.replace('your', name + "'s")
+                        updatedTitle =  title.replace('your', name + "/'s")
                     }
                     else {
                         updatedTitle = title;
