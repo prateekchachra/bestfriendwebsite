@@ -33,6 +33,12 @@ class Quiz extends Component {
     constructor(props){
 
         super(props);
+
+        const {match: {params}, history} = props;
+
+        if(params.quizId === null || params.quizId === ''){
+          history.push('/')
+        }
         this.state = {
             questionsList: [],
             answers: [],

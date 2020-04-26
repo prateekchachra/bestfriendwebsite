@@ -51,7 +51,11 @@ class Question extends Component {
 
 
               let rightOptionFromProps = answer.answer
-              if(option.optionId === rightOptionFromProps) sendBackAnswer(id, optionId, true);
+              if(option.optionId === rightOptionFromProps) {
+                
+               setTimeout(() => sendBackAnswer(id, optionId, true), 200) 
+              
+              }
               else {
                 this.setState({rightOption: rightOptionFromProps}, () => setTimeout(() => 
                 {
@@ -60,7 +64,7 @@ class Question extends Component {
               }
             }
            else {
-              sendBackAnswer(id, optionId)
+            setTimeout(() => sendBackAnswer(id, optionId), 200) 
             }
 
         }}>

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
 import firebase from '../utils/firebaseConfig'
-import {OverlayTrigger, Popover} from 'react-bootstrap';
-
+import {OverlayTrigger, Popover, Modal} from 'react-bootstrap';
+import * as LoadScript from 'react-load-script';
 import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
 import _ from 'lodash'
@@ -44,13 +44,13 @@ class Quiz extends Component {
             width: 0, height: 0, 
             saveQuizProcessing: false,
             savedQuiz: false,
+            showInstagramModal: false,
             quizKey: ''
         }
     }
 
       
       componentDidMount() {
-        this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -108,14 +108,47 @@ class Quiz extends Component {
          this.setState({questionsList})
 
     }
+  
+    handleScriptLoad=()=>{    
+      window.addthis.init();
+      window.addthis.toolbox('.addthis_toolbox')    
+      window.addthis.layers.refresh()    
+      console.log("addthis Loaded");
+    }
+
     
     render(){
-        const {questionsList, width, activeItem, saveQuizProcessing, savedQuiz, quizKey} = this.state;
+        const {questionsList, showInstagramModal, activeItem, saveQuizProcessing, savedQuiz, quizKey} = this.state;
 
       const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
         return(
+      
           <div className='container'>
+             <Modal
+        show={showInstagramModal}
+        onHide={() => this.setState({showInstagramModal: false})}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title style={{fontSize: 20, fontWeight: 'bold'}}>
+          How to Add this link to your Instagram Bio.
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ul style={{
+            marginLeft: 24, marginTop: 24
+          }}>
+          <li>Copy your link</li>
+          <li>Go on your profile in the app</li>
+          <li>Click on Edit Profile</li>
+          <li>Paste the link under Website section</li>
+          </ul>
+        </Modal.Body>
+      </Modal>
+              <LoadScript 
+     url="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ea58ea57cc6edcd" 
+    onLoad={this.handleScriptLoad}
+    />    
             <div className='row'>
                <div className='col-xs-2 col-sm-2 col-lg-2 '></div>
            <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container' style={{
@@ -185,14 +218,45 @@ class Quiz extends Component {
                     style={{
                         backgroundColor: 'maroon',
                         color: 'white',
-                        textAlign: 'center'
+                        textAlign: 'center',
+                        marginBottom: 16
                     }} onClick={this.copyToClipboard}>Copy This Link</button>
                   </OverlayTrigger>
 
-                  <div>
-
-
+              
+                  <div class='row'>
+                    <div class='col-sm-6'>
+                    <a target='_blank'  
+                    href={`whatsapp://send?text=%F0%9F%A4%97 pratt has sent you *Super Dare of 2020* %F0%9F%A4%97 %0A%F0%9F%8E%AF *Take this DARE NOW* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
+                    backgroundColor: '#1cb06d',
+                    color: 'white',
+                    alignItems: 'center',
+                    marginTop: 6,
+                  }}>
+                   <img src={require('../assets/img/whatsapp.svg')}
+                  style={{width: 18, marginRight: 4,marginBottom: 2}} />
+                    WhatsApp Status</a>
+                    </div>
+                    <div class='col-sm-6'>
+                    <button type="button" className="btn btn-block insta-button" style={{
+                
+                    color: 'white',
+                    marginTop: 6
+                  }} onClick={() => this.setState({showInstagramModal: true})}>Add To Instagram Bio</button>
+                    </div>
                   </div>
+                  <div className="addthis_inline_share_toolbox"
+                   style={{marginTop: 24}}
+                  data-url={`${window.location.origin}/quiz/${quizKey.slice(1)}`} data-title={'Check out this Quiz that I created!'}
+                  >
+                  </div>
+                  <button type="button" className="btn btn-block" style={{
+                    backgroundColor: 'maroon',
+                    color: 'white',
+                    marginTop: 12
+                  }} onClick={() => this.props.history.push(`/quiz/${quizKey.slice(1)}`)}>
+                      <span>{'\u{1F449}'}</span> View Results</button>
+               
                     </div>
                
 
