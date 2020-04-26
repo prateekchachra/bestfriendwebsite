@@ -87,7 +87,7 @@ class Quiz extends Component {
           answers,
           scores: []
         }).then(snap => {
-          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key})
+          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis.layers.refresh())
         }).catch(err => console.log(err))
           return;
       }
