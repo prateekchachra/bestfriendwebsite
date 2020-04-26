@@ -55,7 +55,7 @@ class Question extends Component {
               else {
                 this.setState({rightOption: rightOptionFromProps}, () => setTimeout(() => 
                 {
-                  this.setState({rightOptionFromProps: null}, () => sendBackAnswer(id, optionId, false))
+                  this.setState({rightOption: null}, () => sendBackAnswer(id, optionId, false))
                 }, 500))
               }
             }
