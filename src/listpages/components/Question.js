@@ -6,7 +6,7 @@ class Question extends Component {
 
     constructor(props){
         super(props)
-       this.state = { width: 0, height: 0, }
+       this.state = { width: 0, height: 0,isClicked: null }
     }
 
 
@@ -25,16 +25,43 @@ class Question extends Component {
       }
 
 
-    renderOption = (option) => ( 
+      componentWillReceiveProps(nextProps) {
+        if(nextProps.activeQuestion !== this.props.activeQuestion){
+          this.setState({isClicked: null, rightOption: null,})
+        }
+      }
+    renderOption = (option) => {
+      
+      const {rightOption, isClicked} = this.state;
+      
+      const isRightOption = rightOption && rightOption === option.optionId
+      return( 
 
         <div 
+        style={{backgroundColor: isRightOption ?'maroon' : (isClicked
+         ===option.optionId  ? 'greenyellow' : '#fff') }}
         className='question-box'
         onClick={() => {
             const {optionId} = option;
-            const {sendBackAnswer, activeQuestion} = this.props;
+            const {sendBackAnswer, activeQuestion, answer} = this.props;
+            this.setState({isClicked: optionId})
             const {id} = activeQuestion;
-     
-            sendBackAnswer(id, optionId)
+          
+            if(answer){
+
+
+              let rightOptionFromProps = answer.answer
+              if(option.optionId === rightOptionFromProps) sendBackAnswer(id, optionId, true);
+              else {
+                this.setState({rightOption: rightOptionFromProps}, () => setTimeout(() => 
+                {
+                  this.setState({rightOptionFromProps: null}, () => sendBackAnswer(id, optionId, false))
+                }, 500))
+              }
+            }
+           else {
+              sendBackAnswer(id, optionId)
+            }
 
         }}>
         <img style={{
@@ -45,11 +72,12 @@ class Question extends Component {
         }} src={option.image} />
         <p style={{
               paddingBottom: 8,
-              marginTop: 8
+              marginTop: 8,
+              color: isRightOption ? 'white' : '#000'
         }}>{option.title}</p>
 
         </div>
-   )
+   );}
 
     render() {
 

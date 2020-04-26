@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
-import {firebaseConfig} from '../assets/firebase-config'
+import firebase from '../utils/firebaseConfig'
 import {OverlayTrigger, Popover} from 'react-bootstrap';
-import firebase from 'firebase'
+
 import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
+import _ from 'lodash'
 import { css } from "@emotion/core";
 import Question from './components/Question';
 import RingLoader from "react-spinners/RingLoader";
@@ -29,11 +30,15 @@ const popover = (
 class Quiz extends Component {
 
     constructor(props){
+
+      const {main} = props;
+      if(!main.name || main.name === ''){
+        props.history.push('/')
+      }
         super(props);
         this.state = {
-            questionsList: questions,
+            questionsList: _.shuffle(questions),
             askedQuestions: [],
-            skippedQuestions: [],
             answers: [],
             activeItem: 1,
             width: 0, height: 0, 
@@ -46,7 +51,6 @@ class Quiz extends Component {
       
       componentDidMount() {
         this.updateWindowDimensions();
-       firebase.initializeApp(firebaseConfig);
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -81,7 +85,7 @@ class Quiz extends Component {
         quizzesRef.push({
           name: this.props.main.name,
           answers,
-          scoreTable: []
+          scores: []
         }).then(snap => {
           this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key})
         }).catch(err => console.log(err))
@@ -94,18 +98,14 @@ class Quiz extends Component {
         askedQuestions, activeItem: activeItem + 1})
 
       }
-    handleClick = () => {
+      handleClick =() => {
 
       
-        const {questionsList, skippedQuestions} = this.state;
-        if(questionsList.length === 1){
+        const {questionsList} = this.state;
+        let skippedQuestion = questionsList.splice(0, 1)
+        questionsList.push(skippedQuestion)
 
-            //SUBMIT LOGIC
-            return;
-        }
-          let updatedQuestionsList = questionsList.slice(1)
-        skippedQuestions.push(questionsList[0])
-         this.setState({questionsList: updatedQuestionsList, skippedQuestions})
+         this.setState({questionsList})
 
     }
     
@@ -172,7 +172,7 @@ class Quiz extends Component {
                 <textarea
                 onChange={(event) => {}}
                 ref={(textarea) => this.textArea = textarea}
-                value={`${window.location.href}/${quizKey.slice(1)}`}
+                value={`${window.location.origin}/quiz/${quizKey.slice(1)}`}
                 className='form-control' />
                 <div className='text-center' style={{marginTop: 12, marginBottom: 12}}>
 

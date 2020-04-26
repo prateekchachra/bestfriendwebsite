@@ -49,7 +49,7 @@ import Circles from './components/main/Circles';
         }
       }}>
       <div className="form-group">
-          <label for="nameInput" className='font-weight-bold'  style={{
+          <label htmlFor="nameInput" className='font-weight-bold'  style={{
          fontSize: 20
        }}>Select Language :</label>
           <select className="browser-default custom-select" onChange={this.onChange} value={language}>
@@ -57,7 +57,7 @@ import Circles from './components/main/Circles';
             </select>
         </div>
       <div className="form-group">
-          <label className='font-weight-bold' for="nameInput" style={{
+          <label className='font-weight-bold' htmlFor="nameInput" style={{
             fontSize: 20
           }}>Enter your Full Name :</label>
           <input type="name" className="form-control" id="nameInput"

@@ -9,6 +9,8 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import Header from './components/main/Header';
 import Footer from './components/main/Footer';
+import ScoringQuiz from './listpages/ScoringQuiz';
+import QuizResult from './listpages/QuizResult';
 
 const RouterComponent = () => (
   <Router>
@@ -16,6 +18,8 @@ const RouterComponent = () => (
     <Switch>
       <Route exact path="/" component={App} />
       <Route path="/:language/quiz" component={Quiz} />
+      <Route path="/quiz/:quizId" component={ScoringQuiz} />
+      <Route path="/quiz-result/:name/:quizId" component={QuizResult} />
     </Switch>
     <Footer />
   </Router>
