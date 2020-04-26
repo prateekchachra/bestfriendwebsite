@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
-import GaugeChart from 'react-gauge-chart';
 import firebase from '../utils/firebaseConfig'
+import ReactSpeedometer from "react-d3-speedometer"
 import {OverlayTrigger, Popover} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
@@ -290,13 +290,81 @@ class Quiz extends Component {
               <>
             {savedScore ? (
 
-              <div>
-                <GaugeChart id="gauge-chart2" 
-                  nrOfLevels={20} 
-                  percent={totalScore/100} 
-                  textColor='#000'
-                  formatTextValue={(value) => value}
+              <div className='text-center'>
+
+                <p style={{
+                  marginTop: 24,
+                  fontWeight: 'bold',
+                  fontSize: 26
+                }}>
+                  Score: {totalScore}
+                </p>
+                <ReactSpeedometer  maxValue={20}
+                value={totalScore}
+                minValue={0}
+                needleColor="maroon"
+                currentValueText={totalScore.toString()}
+                segments={3}
+                segmentColors={[ "tomato", "gold", "limegreen"]}
+                customSegmentStops={[0,5,15,20]}
+                customSegmentLabels={[
+                  {
+                    text: "Low",
+                    position: "INSIDE",
+                    color: "#555",
+                  },
+                  {
+                    text: "Medium",
+                    position: "INSIDE",
+                    color: "#555",
+                  },
+                  {
+                    text: "High",
+                    position: "INSIDE",
+                    color: "#555",
+                  },
+               
+                ]}
                 />
+                  <button type="button" className="btn btn-block" style={{
+                    backgroundColor: 'maroon',
+                    color: 'white',
+                    marginTop: -24,
+                    marginBottom: 24
+                }} onClick={() => this.props.history.push('/')}>Create Your Quiz</button>
+                   <div>
+                  <p className='text-center font-weight-bold'
+                    style={{
+                        fontSize: 24
+                    }}>
+                        Who Knows {name} Best?
+                    </p>
+                    <table className='table table-hover table-bordered'
+                    style={{backgroundColor: '#fff'}}>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {scores.map((item, index) =>(
+                               <tr style={{backgroundColor: item.name === guestName ? 'turqoise' : null}}>
+                               <td> <Link to={{
+                              pathname: `/quiz-result/${item.name}/${quizId}`,
+                              state: {
+                                score: item
+                              }
+                            }}>{item.name} </Link></td>
+                               <td>{item.score}</td>
+                               </tr>
+                        ))}
+                     
+                    
+                        </tbody>
+
+                    </table>
+                  </div>
               </div>
             ) : (  <div className='text-center' style={{
                 paddingBottom: 100
