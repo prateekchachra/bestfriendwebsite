@@ -4,9 +4,11 @@ import UIfx from 'uifx'
 import styles from '../../assets/styles/question.css'
 import wrong from '../../assets/sounds/wrong.mp3'
 import right from '../../assets/sounds/right.mp3'
+import click from '../../assets/sounds/click.mp3'
 
 const wrongSound = new UIfx(wrong)
 const rightSound = new UIfx(right)
+const clickSound = new UIfx(click)
 
 
 
@@ -92,6 +94,7 @@ class Question extends Component {
               }
             }
            else {
+            clickSound.play();
             setTimeout(() => sendBackAnswer(id, optionId), 200) 
             }
 

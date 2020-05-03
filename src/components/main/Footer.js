@@ -54,6 +54,7 @@ class Footer extends Component {
                 <div className='text-center col-xs-4 col-sm-6 col-lg-4'>
 
                 <p>Contact</p>
+                <p>Privacy Policy</p>
                 </div>
                 <div className='text-center col-xs-4 col-sm-3 col-lg-4'>
                 </div>
