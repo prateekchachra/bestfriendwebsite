@@ -1,6 +1,6 @@
 export const questions = [{
     id: 1,
-    title: 'What type of games do you like?',
+    title: 'What type of games do you like playing?',
     options: [
         {
             title: 'Indoor Games',
@@ -134,17 +134,17 @@ export const questions = [{
             image: require('../img/6/c.jpg')
         },
         {
-            title: 'Doughnuts',
+            title: 'Ice Cream',
             optionId: 'd',
             image: require('../img/6/d.jpg')
         },
         {
-            title: 'Marshmellows',
+            title: 'Rasmalai',
             optionId: 'e',
             image: require('../img/6/e.jpg')
         },
         {
-            title: 'Cupcakes',
+            title: 'Jalebi',
             optionId: 'f',
             image: require('../img/6/f.jpg')
         },
@@ -240,7 +240,7 @@ export const questions = [{
 },
 {
     id: 9,
-    title: 'What do you like?',
+    title: 'What do you believe in?',
     options: [
         {
             title: 'Hard Work',
@@ -385,7 +385,7 @@ export const questions = [{
 },
 {
     id: 15,
-    title: 'What exercise do you like?',
+    title: 'What exercise do you like doing?',
     options: [
         {
             title: 'Dance',
@@ -503,7 +503,7 @@ export const questions = [{
             image: require('../img/19/c.jpg')
         },
         {
-            title: 'Hamster',
+            title: 'Parrot',
             optionId: 'd',
             image: require('../img/19/d.jpg')
         },
@@ -663,16 +663,6 @@ export const questions = [{
     title: "If you win a lottery what will you buy?",
     options: [
         {
-            title: 'Private Plane',
-             optionId: 'a',
-            image: require('../img/26/a.jpg')
-        },
-        {
-            title: 'Villa',
-            optionId: 'b',
-            image: require('../img/26/b.jpg')
-        },
-        {
             title: 'Disney Land',
             optionId: 'c',
             image: require('../img/26/c.jpg')
@@ -681,6 +671,16 @@ export const questions = [{
             title: 'Diamonds',
             optionId: 'd',
             image: require('../img/26/d.jpg')
+        },
+        {
+            title: 'Private Plane',
+             optionId: 'a',
+            image: require('../img/26/a.jpg')
+        },
+        {
+            title: 'Villa',
+            optionId: 'b',
+            image: require('../img/26/b.jpg')
         },
     ],
 
@@ -784,7 +784,7 @@ export const questions = [{
 
 {
     id: 31,
-    title: 'What did you want to be when you were a kid?',
+    title: 'What did you want to become when you were a kid?',
     options: [
         {
             title: 'Doctor',
@@ -870,27 +870,27 @@ export const questions = [{
 },
 {
     id: 33,
-    title: "Which life is best?",
+    title: "Which life is the best according to you?",
     options: [
-        {
-            title: 'Single',
-             optionId: 'a',
-            image: require('../img/33/a.jpg')
-        },
-        {
-            title: 'Committed',
-            optionId: 'b',
-            image: require('../img/33/b.jpg')
-        },
-        {
-            title: 'Married',
-            optionId: 'c',
-            image: require('../img/33/c.jpg')
-        },
         {
             title: 'One Sided Love',
             optionId: 'd',
             image: require('../img/33/d.jpg')
+        },
+                {
+                    title: 'Marriage',
+                    optionId: 'c',
+                    image: require('../img/33/c.jpg')
+                },
+        {
+            title: 'Single Life',
+             optionId: 'a',
+            image: require('../img/33/a.jpg')
+        },
+        {
+            title: 'In a Relationship',
+            optionId: 'b',
+            image: require('../img/33/b.jpg')
         },
     ],
 
@@ -1030,7 +1030,7 @@ export const questions = [{
 },
 {
     id: 40,
-    title: 'Would you rather watch?',
+    title: 'Which movie genre do you like watching?',
     options: [
         {
             title: 'Action',
@@ -1043,7 +1043,7 @@ export const questions = [{
             image: require('../img/40/b.jpg')
         },
         {
-            title: 'Science Fiction',
+            title: 'Comedy',
             optionId: 'c',
             image: require('../img/40/c.jpg')
         },
@@ -1092,22 +1092,17 @@ export const questions = [{
 },
 {
     id: 39,
-    title: 'What do you use the most?',
+    title: 'Which app do you prefer spending time on?',
     options: [
-        {
-            title: 'Facebook',
-            optionId: 'a',
-            image: require('../img/39/a.jpg')
-        },
-        {
-            title: 'Instagram',
-            optionId: 'b',
-            image: require('../img/39/b.jpg')
-        },
         {
             title: 'SnapChat',
             optionId: 'c',
             image: require('../img/39/c.jpg')
+        },
+        {
+            title: 'Skype',
+            optionId: 'f',
+            image: require('../img/39/f.jpg')
         },
         {
             title: 'TikTok',
@@ -1119,10 +1114,15 @@ export const questions = [{
             optionId: 'e',
             image: require('../img/39/e.jpg')
         },
+        {   
+            title: 'Facebook',
+            optionId: 'a',
+            image: require('../img/39/a.jpg')
+        },
         {
-            title: 'Skype',
-            optionId: 'f',
-            image: require('../img/39/f.jpg')
+            title: 'Instagram',
+            optionId: 'b',
+            image: require('../img/39/b.jpg')
         },
     ],
 

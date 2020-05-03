@@ -24,7 +24,7 @@ import Circles from './components/main/Circles';
 
     const {language, name, errors} = this.state;
   return (
-    <div className="App container">
+    <div className="App container-fluid">
       <div className='row'>
      <div className="col-xs-2 col-sm-2 col-lg-2"></div>
      <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container'
@@ -60,7 +60,7 @@ import Circles from './components/main/Circles';
       <div className="form-group">
           <label className='font-weight-bold' htmlFor="nameInput" style={{
             fontSize: 20
-          }}>Enter your Full Name :</label>
+          }}>Enter your Name (eg. John) :</label>
           <input type="name" className="form-control" id="nameInput"
           onChange={(event) => this.setState({name: event.target.value, errors: {}})}
           value={name}
@@ -73,7 +73,7 @@ import Circles from './components/main/Circles';
        <button type="submit" value="Submit" className="btn btn-block" style={{
          backgroundColor: 'maroon',
          color: 'white'
-       }}>Start</button>
+       }}>Create Your Quiz!</button>
   
       </form>
      </Box>

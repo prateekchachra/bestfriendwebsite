@@ -124,7 +124,7 @@ class Quiz extends Component {
 
         return(
       
-          <div className='container'>
+          <div className='container-fluid'>
              <Modal
         show={showInstagramModal}
         onHide={() => this.setState({showInstagramModal: false})}
@@ -195,12 +195,12 @@ class Quiz extends Component {
                   color: 'maroon',
                   fontSize: 24,
                   fontWeight: 'bold'
-                }}>Your Challenge is Ready</p>
+                }}>Your Quiz is Ready</p>
                 <p style={{
                   color: '#4a4a4a',
                   fontSize: 18,
                   fontWeight: 'bold'
-                }}>Share this link with your friends</p>
+                }}>Share this link with your friends! They will try to guess the answers and will get a score out of 20</p>
 
                 <textarea
                 onChange={(event) => {}}
@@ -235,7 +235,7 @@ class Quiz extends Component {
                   }}>
                    <img src={require('../assets/img/whatsapp.svg')}
                   style={{width: 18, marginRight: 4,marginBottom: 2}} />
-                    WhatsApp Status</a>
+                    Add to WhatsApp Status</a>
                     </div>
                     <div className='col-sm-6'>
                     <button type="button" className="btn btn-block insta-button" style={{

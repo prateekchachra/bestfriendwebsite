@@ -1,6 +1,15 @@
 //import liraries
 import React, { Component } from 'react';
+import UIfx from 'uifx'
 import styles from '../../assets/styles/question.css'
+import wrong from '../../assets/sounds/wrong.mp3'
+import right from '../../assets/sounds/right.mp3'
+
+const wrongSound = new UIfx(wrong)
+const rightSound = new UIfx(right)
+
+
+
 class Question extends Component {
 
 
@@ -63,17 +72,19 @@ class Question extends Component {
             const {sendBackAnswer, activeQuestion, answer} = this.props;
             this.setState({isClicked: optionId})
             const {id} = activeQuestion;
+
           
             if(answer){
 
 
               let rightOptionFromProps = answer.answer
               if(option.optionId === rightOptionFromProps) {
-                
+                rightSound.play()
                setTimeout(() => sendBackAnswer(id, optionId, true), 200) 
               
               }
               else {
+                wrongSound.play()
                 this.setState({rightOption: rightOptionFromProps}, () => setTimeout(() => 
                 {
                   this.setState({rightOption: null}, () => sendBackAnswer(id, optionId, false))

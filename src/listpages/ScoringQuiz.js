@@ -40,7 +40,7 @@ class Quiz extends Component {
           history.push('/')
         }
         this.state = {
-            questionsList: [],
+            questionsListForScoring: [],
             answers: [],
             answersByGuest: [],
 
@@ -77,6 +77,8 @@ class Quiz extends Component {
                 questions.map((item,index) => {
                  
                     const {title} = item;
+                    let updatedItem = {...item};
+
                     let updatedTitle = ''
                     if(title.includes('Do you')){
                         updatedTitle = title.replace('Do you', 'Does ' + name)
@@ -105,12 +107,12 @@ class Quiz extends Component {
                     }
 
 
-                        item.title = updatedTitle;
-                        updatedQuestions.push(item)
+                        updatedItem.title = updatedTitle;
+                        updatedQuestions.push(updatedItem)
                 })
                this.setState({answers,quizRef, name,scores: scores ? scores : [],
                 activeQuestion: answers[0].question, quizId: params.quizId,
-                questionsList: updatedQuestions})
+                questionsListForScoring: updatedQuestions})
            }
         })
           
@@ -160,7 +162,7 @@ class Quiz extends Component {
  
     
     render(){
-        const {questionsList, name,
+        const {questionsListForScoring, name,
             guestName,scores,totalScore,
             quizId,
             activeQuestion, answers,savedScore,
@@ -199,7 +201,7 @@ class Quiz extends Component {
                 </div>
 
             <Question 
-            activeQuestion={questionsList[activeQuestion - 1]}
+            activeQuestion={questionsListForScoring[activeQuestion - 1]}
             answer={answers[activeItem - 1]}
             sendBackAnswer={this.receiveAnswerFromClickEvent}
             />
