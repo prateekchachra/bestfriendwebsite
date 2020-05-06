@@ -67,7 +67,8 @@ class Question extends Component {
       return( 
 
         <div 
-        style={{backgroundColor: effectiveBackgroundColor }}
+        style={{backgroundColor: effectiveBackgroundColor,
+        height: this.state.width/5 * 0.8 + 80, width: this.state.width/5 + 20 }}
         className='question-box'
         onClick={() => {
             const {optionId} = option;

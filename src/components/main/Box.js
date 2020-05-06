@@ -8,7 +8,7 @@ class MyClass extends Component {
         const {children, style, classes} = this.props
         return (
 
-          <div className={classes ? classes :  'col-xs-6 col-sm-6 col-lg-6 box_container'} style={{
+          <div className={classes ? classes :  'col-6 col-sm-6 col-lg-6 box_container'} style={{
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',

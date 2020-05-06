@@ -103,7 +103,7 @@ class Quiz extends Component {
       
         const {questionsList} = this.state;
         let skippedQuestion = questionsList.splice(0, 1)
-        questionsList.push(skippedQuestion)
+        questionsList.push(skippedQuestion[0])
 
          this.setState({questionsList})
 
@@ -150,8 +150,8 @@ class Quiz extends Component {
     onLoad={this.handleScriptLoad}
     />    
             <div className='row'>
-               <div className='col-xs-2 col-sm-2 col-lg-2 '></div>
-           <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container' style={{
+               <div className='col-2 col-sm-2 col-lg-2 '></div>
+           <Box classes='col-8 col-sm-8 col-lg-8 box_container' style={{
              paddingBottom: 14
            }}>
               <Circles />
@@ -285,7 +285,7 @@ class Quiz extends Component {
               </div>
             )}
            </Box>
-           <div className='col-xs-2 col-sm-2 col-lg-2'></div>
+           <div className='col-2 col-sm-2 col-lg-2'></div>
            </div>
            </div>
         );

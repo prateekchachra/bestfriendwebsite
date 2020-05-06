@@ -6,6 +6,9 @@ import Header from './components/main/Header';
 import Box from './components/main/Box';
 import {saveName, changeLanguage} from './listpages/actions'
 import Circles from './components/main/Circles';
+
+// will be automatically minified ny webpack
+import 'bootstrap/dist/css/bootstrap.css'
  class App extends React.Component {
 
   constructor(props) {
@@ -26,8 +29,8 @@ import Circles from './components/main/Circles';
   return (
     <div className="App container-fluid">
       <div className='row'>
-     <div className="col-xs-2 col-sm-2 col-lg-2"></div>
-     <Box classes='col-xs-8 col-sm-8 col-lg-8 box_container'
+     <div className="col-2 col-sm-2 col-lg-2"></div>
+     <Box classes='col-8 col-sm-8 col-lg-8 box_container'
       style={{padding: 20}}>
      <Circles />
        <p className='text-center font-weight-bold'
@@ -77,7 +80,7 @@ import Circles from './components/main/Circles';
   
       </form>
      </Box>
-     <div className='col-xs-2 col-sm-2 col-lg-2'></div>
+     <div className='col-2 col-sm-2 col-lg-2'></div>
      </div>
     </div>
   );
