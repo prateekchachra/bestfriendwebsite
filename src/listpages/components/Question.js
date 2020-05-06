@@ -68,7 +68,7 @@ class Question extends Component {
 
         <div 
         style={{backgroundColor: effectiveBackgroundColor,
-        height: this.state.width/5 * 0.8 + 90, width: this.state.width/5 + 20 }}
+        height: this.state.width/5 * 0.8 + 110, width: this.state.width/5 + 20 }}
         className='question-box'
         onClick={() => {
             const {optionId} = option;
@@ -109,7 +109,7 @@ class Question extends Component {
           height: (this.state.width/5 * 0.8),
         }} src={option.image} />
         <p style={{
-              paddingBottom: 8,
+              overflow: 'scroll',
               marginTop: 8,
               width: this.state.width/5,
               color: isWhiteBackground ? 'white' : '#000'
