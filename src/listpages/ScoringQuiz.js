@@ -174,8 +174,8 @@ class Quiz extends Component {
         return(
           <div className='container'>
             <div className='row'>
-               <div className='col-2 col-sm-2 col-lg-2 '></div>
-           <Box classes='col-8 col-sm-8 col-lg-8 box_container' style={{
+               <div className='col-1 col-sm-2 col-lg-2 '></div>
+           <Box classes='col-10 col-sm-8 col-lg-8 box_container' style={{
            
            }}>
            {!calculateScoreProcessing ?  (
@@ -393,7 +393,7 @@ class Quiz extends Component {
               </>
             )}
            </Box>
-           <div className='col-2 col-sm-2 col-lg-2'></div>
+           <div className='col-1 col-sm-2 col-lg-2'></div>
            </div>
            </div>
         );

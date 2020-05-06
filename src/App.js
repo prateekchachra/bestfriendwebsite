@@ -29,8 +29,8 @@ import 'bootstrap/dist/css/bootstrap.css'
   return (
     <div className="App container-fluid">
       <div className='row'>
-     <div className="col-2 col-sm-2 col-lg-2"></div>
-     <Box classes='col-8 col-sm-8 col-lg-8 box_container'
+     <div className="col-1 col-sm-2 col-lg-2"></div>
+     <Box classes='col-10 col-sm-8 col-lg-8 box_container'
       style={{padding: 20}}>
      <Circles />
        <p className='text-center font-weight-bold'
@@ -57,7 +57,30 @@ import 'bootstrap/dist/css/bootstrap.css'
          fontSize: 20
        }}>Select Language :</label>
           <select className="browser-default custom-select" onChange={this.onChange} value={language}>
-          <option value='en'>English</option><option value='de'>Deutsch</option><option value='es'>Español</option><option value='fr'>Français</option><option value='id'>Bahasa Indonesia</option><option value='it'>Italiano</option><option value='pt'>Português</option><option value='ru'>Русский</option><option value='tr'>Türkçe</option><option value='ar'>عربى</option><option value='fi'>Suomen Kieli</option><option value='ro'>Română</option><option value='nl'>Nederlands (Dutch)</option><option value='pl'>Polski</option><option value='sv'>Svenska</option><option value='hi'>हिंदी</option><option value='uk'>Украiнська</option><option value='hr'>hrvatski</option><option value='il'>עברית</option><option value='ms'>Bahasa Melayu</option><option value='jp'>日本語</option><option value='ko'>한국어</option><option value='vn'>Tiếng Việt</option><option value='th'>ไทย</option>
+          <option value='en'>English</option>
+          <option value='es'>Español</option>
+           {/*  <option value='de'>Deutsch</option>
+        <option value='fr'>Français</option>
+          <option value='id'>Bahasa Indonesia</option>
+          <option value='it'>Italiano</option>
+          <option value='pt'>Português</option>
+          <option value='ru'>Русский</option>
+          <option value='tr'>Türkçe</option>
+          <option value='ar'>عربى</option>
+          <option value='fi'>Suomen Kieli</option>
+          <option value='ro'>Română</option>
+          <option value='nl'>Nederlands (Dutch)</option>
+          <option value='pl'>Polski</option>
+          <option value='sv'>Svenska</option>
+          <option value='hi'>हिंदी</option>
+          <option value='uk'>Украiнська</option>
+          <option value='hr'>hrvatski</option>
+          <option value='il'>עברית</option>
+          <option value='ms'>Bahasa Melayu</option>
+          <option value='jp'>日本語</option>
+          <option value='ko'>한국어</option>
+          <option value='vn'>Tiếng Việt</option>
+          <option value='th'>ไทย</option> */}
             </select>
         </div>
       <div className="form-group">
@@ -80,7 +103,7 @@ import 'bootstrap/dist/css/bootstrap.css'
   
       </form>
      </Box>
-     <div className='col-2 col-sm-2 col-lg-2'></div>
+     <div className='col-1 col-sm-2 col-lg-2'></div>
      </div>
     </div>
   );
