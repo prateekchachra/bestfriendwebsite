@@ -1,5 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
+
+
+import styles from '../../assets/styles/footer.css'
 // create a component
 class Footer extends Component {
     constructor(props) {
@@ -53,8 +56,19 @@ class Footer extends Component {
 
                 <div className='text-center col-4 col-sm-6 col-lg-4'>
 
-                <p>Contact</p>
+                <a href='/about-us'>
+                <p>About Us</p>
+                </a>
+                <a href='/contact-us'>
+                <p>Contact Us</p>
+                </a>
+                <a href='/faq'>
+                <p>Frequently Asked Questions</p>
+                </a>
+                <a href='/privacy'>
                 <p>Privacy Policy</p>
+                </a>
+
                 </div>
                 <div className='text-center col-4 col-sm-3 col-lg-4'>
                 </div>

@@ -9,6 +9,10 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import Header from './components/main/Header';
 import Footer from './components/main/Footer';
+import FrequentlyAsked from './components/common/FrequentlyAsked';
+import AboutUs from './components/common/AboutUs';
+import PrivacyPolicy from './components/common/PrivacyPolicy';
+import Contact from './components/common/Contact';
 import ScoringQuiz from './listpages/ScoringQuiz';
 import QuizResult from './listpages/QuizResult';
 
@@ -18,6 +22,10 @@ const RouterComponent = () => (
     <Switch>
       <Route exact path="/" component={App} />
       <Route path="/:language/quiz" component={Quiz} />
+      <Route path="/contact-us" component={Contact} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/about-us" component={AboutUs} />
+      <Route path="/faq" component={FrequentlyAsked} />
       <Route path="/quiz/:quizId" component={ScoringQuiz} />
       <Route path="/quiz-result/:name/:quizId" component={QuizResult} />
     </Switch>
