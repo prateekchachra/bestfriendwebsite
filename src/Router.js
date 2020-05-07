@@ -29,7 +29,7 @@ class RouterComponent extends React.Component {
 
       const languages = [
         { name: "English", code: "en" },
-        { name: "Español", code: "es" },
+        // { name: "Español", code: "es" },
       ];
       const defaultLanguage = localStorage.getItem("languageCode") || languages[0].code;
 
