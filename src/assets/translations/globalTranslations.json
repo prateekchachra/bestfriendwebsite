@@ -1,0 +1,59 @@
+{
+    "main": {
+      "title": [
+          "Super dare of 2020",
+           "Super dare of 2020"
+        ],
+      "languageSelect": [
+          "Select Language :",
+          "Seleccionar Idioma :"
+      ],
+      "nameSelect": [
+        "Enter your Name (eg. John) :",
+        "Introduce su nombre (por ejemplo, Juan)"
+      ],
+      "nameWarning": [
+        "Name cannot be empty",
+        "El nombre no puede estar vacío"
+      ],
+      "createQuiz": [
+        "Create Your Quiz!",
+        "Crea Tu Cuestionario!"
+      ],
+      "placeholder" : [
+        "Full Name",
+        "Nombre Completo"
+      ]
+    },
+    "footer": {
+        "description" : [
+            "Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard.",
+            "Selecciona tu País, Introduce tu Nombre, Correo, Crea tu Test y Compártelo con tus amigos en Facebook o Whatsapp. Cuando tus amigos terminen el test verás los resultados en el marcador."
+
+        ],
+        "aboutus" : [
+            "About Us",
+            "Sobre"
+
+        ],
+        "contactus" : [
+            "Contact Us",
+            "Contacta Con Nosotros"
+
+        ],
+        "faq" : [
+            "Frequently Asked Questions",
+            "Preguntas frecuentes"
+
+        ],
+        "privacy" : [
+            "Privacy Policy",
+            "Política de privacidad"
+
+        ]
+    },
+    "aboutus" : [
+      "Quiz Junction Is a fun quiz site which lets you know who is your true friend and who knows the most about you. You can create your own quiz and share it with you friends and family. This is a hand crafted puzzle that can be played anywhere easily. We promise to bring you more of these amazing quizzes in the future. Till then enjoy playing the best friend quiz. You can share these quizzes with your friends via whatsapp, instagram and other social media apps.",
+      "Quiz Junction es un divertido sitio de cuestionarios que te permite saber quién es tu verdadero amigo y quién sabe más sobre ti. Puede crear su propio cuestionario y compartirlo con sus amigos y familiares. Este es un rompecabezas hecho a mano que se puede jugar en cualquier lugar fácilmente. Prometemos traerle más de estos asombrosos cuestionarios en el futuro. Hasta entonces disfruta jugando el mejor concurso de amigos. Puede compartir estos cuestionarios con sus amigos a través de WhatsApp, Instagram y otras aplicaciones de redes sociales."
+    ]
+  }

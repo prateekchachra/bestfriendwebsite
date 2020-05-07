@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-
+import { Translate } from "react-localize-redux";
 
 import styles from '../../assets/styles/footer.css'
 // create a component
@@ -38,7 +38,7 @@ class Footer extends Component {
                   
                 }}>
                 <p style={{marginTop: 24}}>
-                Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard.
+                <Translate id="footer.description"/>
                 </p>
                 </div>
                 <div className='col-3 col-sm-3 col-lg-4 '></div>
@@ -57,16 +57,16 @@ class Footer extends Component {
                 <div className='text-center col-4 col-sm-6 col-lg-4'>
 
                 <a href='/about-us'>
-                <p>About Us</p>
+                <p><Translate id="footer.aboutus"/></p>
                 </a>
                 <a href='/contact-us'>
-                <p>Contact Us</p>
+                <p><Translate id="footer.contactus"/></p>
                 </a>
                 <a href='/faq'>
-                <p>Frequently Asked Questions</p>
+                <p><Translate id="footer.faq"/></p>
                 </a>
                 <a href='/privacy'>
-                <p>Privacy Policy</p>
+                <p><Translate id="footer.privacy"/></p>
                 </a>
 
                 </div>

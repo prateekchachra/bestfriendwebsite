@@ -1,10 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import Header from './components/main/Header';
 import Box from './components/main/Box';
 import {saveName, changeLanguage} from './listpages/actions'
+import { withLocalize, Translate } from "react-localize-redux";
 import Circles from './components/main/Circles';
 
 // will be automatically minified ny webpack
@@ -13,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 
   constructor(props) {
     super(props);
+
+
     this.state = {language:'en', name: '', errors: {} };
   }
   
@@ -21,10 +21,11 @@ import 'bootstrap/dist/css/bootstrap.css'
   onChange = (event) => {
     const{value} = event.target
     this.props.changeLanguage(value)
+    this.props.setActiveLanguage(value)
+    localStorage.setItem("languageCode", value);
     this.setState({language: value})
   }
   render(){
-
     const {language, name, errors} = this.state;
   return (
     <div className="App container-fluid">
@@ -37,7 +38,7 @@ import 'bootstrap/dist/css/bootstrap.css'
        style={{
          fontSize: 24
        }}>
-         Super dare of 2020
+        <Translate id="main.title" />
        </p>
 
       <form onSubmit={(event) => {
@@ -55,7 +56,7 @@ import 'bootstrap/dist/css/bootstrap.css'
       <div className="form-group">
           <label htmlFor="nameInput" className='font-weight-bold'  style={{
          fontSize: 20
-       }}>Select Language :</label>
+       }}>    <Translate id="main.languageSelect" /></label>
           <select className="browser-default custom-select" onChange={this.onChange} value={language}>
           <option value='en'>English</option>
           <option value='es'>Español</option>
@@ -86,20 +87,25 @@ import 'bootstrap/dist/css/bootstrap.css'
       <div className="form-group">
           <label className='font-weight-bold' htmlFor="nameInput" style={{
             fontSize: 20
-          }}>Enter your Name (eg. John) :</label>
-          <input type="name" className="form-control" id="nameInput"
+          }}>  <Translate id="main.nameSelect" /></label>
+
+
+        <Translate>
+        {({ translate }) =>   <input type="name" className="form-control" id="nameInput"
           onChange={(event) => this.setState({name: event.target.value, errors: {}})}
           value={name}
-          aria-describedby="emailHelp" placeholder="Full Name" />
+          aria-describedby="emailHelp" placeholder={translate('main.placeholder')} />
+        }
+          </Translate>
        </div>
        {errors['name'] && <p style={{
          color: 'red',
          fontSize: 18
-       }}>Name cannot be empty</p>}
+       }}><Translate id="main.nameWarning" /></p>}
        <button type="submit" value="Submit" className="btn btn-block" style={{
          backgroundColor: 'maroon',
          color: 'white'
-       }}>Create Your Quiz!</button>
+       }}><Translate id="main.createQuiz" /></button>
   
       </form>
      </Box>
@@ -115,4 +121,4 @@ const mapStateToProps = (state) => ({
   main: state.main
 })
 
-export default connect(mapStateToProps, {saveName, changeLanguage})(App);
+export default withLocalize(connect(mapStateToProps, {saveName, changeLanguage})(App));

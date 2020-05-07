@@ -1,44 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import './index.css';
-import App from './App';
-import Quiz from './listpages/Quiz';
+import RouterComponent from './Router'
+
 import store from './redux/store'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
-import Header from './components/main/Header';
-import Footer from './components/main/Footer';
-import FrequentlyAsked from './components/common/FrequentlyAsked';
-import AboutUs from './components/common/AboutUs';
-import PrivacyPolicy from './components/common/PrivacyPolicy';
-import Contact from './components/common/Contact';
-import ScoringQuiz from './listpages/ScoringQuiz';
-import QuizResult from './listpages/QuizResult';
+import { LocalizeProvider } from "react-localize-redux";
 
-const RouterComponent = () => (
-  <Router>
-    <Header />
-    <Switch>
-      <Route exact path="/" component={App} />
-      <Route path="/:language/quiz" component={Quiz} />
-      <Route path="/contact-us" component={Contact} />
-      <Route path="/privacy" component={PrivacyPolicy} />
-      <Route path="/about-us" component={AboutUs} />
-      <Route path="/faq" component={FrequentlyAsked} />
-      <Route path="/quiz/:quizId" component={ScoringQuiz} />
-      <Route path="/quiz-result/:name/:quizId" component={QuizResult} />
-    </Switch>
-    <Footer />
-  </Router>
-)
+
+
+
+
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <LocalizeProvider>
      <Provider store={store}>
     <RouterComponent />
     </Provider>
+    </LocalizeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
