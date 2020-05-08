@@ -4,7 +4,7 @@ import Box from './components/main/Box';
 import {saveName, changeLanguage} from './listpages/actions'
 import { withLocalize, Translate } from "react-localize-redux";
 import Circles from './components/main/Circles';
-
+import {colors} from './assets/styles/theme'
 // will be automatically minified ny webpack
 import 'bootstrap/dist/css/bootstrap.css'
  class App extends React.Component {
@@ -59,8 +59,8 @@ import 'bootstrap/dist/css/bootstrap.css'
        }}>    <Translate id="main.languageSelect" /></label>
           <select className="browser-default custom-select" onChange={this.onChange} value={language}>
           <option value='en'>English</option>
-          <option value='es'>Español</option>
-           {/*  <option value='de'>Deutsch</option>
+         {/* <option value='es'>Español</option>
+             <option value='de'>Deutsch</option>
         <option value='fr'>Français</option>
           <option value='id'>Bahasa Indonesia</option>
           <option value='it'>Italiano</option>
@@ -103,7 +103,7 @@ import 'bootstrap/dist/css/bootstrap.css'
          fontSize: 18
        }}><Translate id="main.nameWarning" /></p>}
        <button type="submit" value="Submit" className="btn btn-block" style={{
-         backgroundColor: 'maroon',
+         backgroundColor: colors.ThemeColor,
          color: 'white'
        }}><Translate id="main.createQuiz" /></button>
   

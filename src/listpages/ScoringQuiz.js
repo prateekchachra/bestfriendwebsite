@@ -12,6 +12,7 @@ import { css } from "@emotion/core";
 import Question from './components/Question';
 import RingLoader from "react-spinners/RingLoader";
 import Circles from '../components/main/Circles';
+import { colors } from '../assets/styles/theme';
 
 const override = css`
   display: block;
@@ -249,7 +250,7 @@ class Quiz extends Component {
                     fontSize: 18
                 }}>Name cannot be empty</p>}
                 <button type="submit" value="Submit" className="btn btn-block" style={{
-                    backgroundColor: 'maroon',
+                    backgroundColor: colors.ThemeColor,
                     color: 'white'
                 }}>Start</button>
                 <div className='text-center' style={{marginTop: 12, marginBottom: 12}}>
@@ -310,7 +311,7 @@ class Quiz extends Component {
                 <ReactSpeedometer  maxValue={20}
                 value={totalScore}
                 minValue={0}
-                needleColor="maroon"
+                needleColor={colors.ThemeColor}
                 currentValueText={totalScore.toString()}
                 segments={3}
                 segmentColors={[ "tomato", "gold", "limegreen"]}
@@ -335,7 +336,7 @@ class Quiz extends Component {
                 ]}
                 />
                   <button type="button" className="btn btn-block" style={{
-                    backgroundColor: 'maroon',
+                    backgroundColor: colors.ThemeColor,
                     color: 'white',
                     marginTop: -24,
                     marginBottom: 24

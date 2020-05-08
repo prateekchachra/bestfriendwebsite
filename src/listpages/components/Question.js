@@ -5,6 +5,7 @@ import styles from '../../assets/styles/question.css'
 import wrong from '../../assets/sounds/wrong.mp3'
 import right from '../../assets/sounds/right.mp3'
 import click from '../../assets/sounds/click.mp3'
+import { colors } from '../../assets/styles/theme';
 
 const wrongSound = new UIfx(wrong)
 const rightSound = new UIfx(right)
@@ -56,7 +57,7 @@ class Question extends Component {
 
         else if(isClicked === option.optionId && !isRightOption) {
           isWhiteBackground= true;
-          effectiveBackgroundColor = 'maroon'
+          effectiveBackgroundColor = colors.ThemeColor
         }
       }
       else {
@@ -68,7 +69,7 @@ class Question extends Component {
 
         <div 
         style={{backgroundColor: effectiveBackgroundColor,
-        height: this.state.width/5 * 0.8 + 110, width: this.state.width/5 + 20 }}
+        height: this.state.width/4 * 0.8 + 110, width: this.state.width/4 + 20 }}
         className='question-box'
         onClick={() => {
             const {optionId} = option;
@@ -105,13 +106,13 @@ class Question extends Component {
         style={{
             borderRadius: 15,
             marginTop: 14,
-          width: this.state.width/5,
-          height: (this.state.width/5 * 0.8),
+          width: this.state.width/4,
+          height: (this.state.width/4 * 0.9),
         }} src={option.image} />
         <p style={{
               overflow: 'scroll',
               marginTop: 8,
-              width: this.state.width/5,
+              width: this.state.width/4,
               color: isWhiteBackground ? 'white' : '#000'
         }}>{option.title}</p>
 

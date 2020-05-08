@@ -11,6 +11,7 @@ import { css } from "@emotion/core";
 import Question from './components/Question';
 import RingLoader from "react-spinners/RingLoader";
 import Circles from '../components/main/Circles';
+import { colors } from '../assets/styles/theme';
 
 const override = css`
   display: block;
@@ -177,7 +178,7 @@ class Quiz extends Component {
             
             <div className='text-center' style={{marginTop: 36}}>
                     <button type="button" className="btn btn-center" style={{
-                        backgroundColor: 'maroon',
+                        backgroundColor: colors.ThemeColor,
                         color: 'white',
                         textAlign: 'center'
                     }} onClick={this.handleClick}>Skip this Question</button>
@@ -192,7 +193,7 @@ class Quiz extends Component {
               <div className='text-center'>
                 <p style={{
 
-                  color: 'maroon',
+                  color: colors.ThemeColor,
                   fontSize: 24,
                   fontWeight: 'bold'
                 }}>Your Quiz is Ready</p>
@@ -216,7 +217,7 @@ class Quiz extends Component {
                     <button type="button" className="btn btn-center"
                     
                     style={{
-                        backgroundColor: 'maroon',
+                        backgroundColor: colors.ThemeColor,
                         color: 'white',
                         textAlign: 'center',
                         marginBottom: 16
@@ -227,7 +228,7 @@ class Quiz extends Component {
                   <div className='row'>
                     <div className='col-sm-6'>
                     <a target='_blank'  
-                    href={`whatsapp://send?text=%F0%9F%A4%97 ${this.props.main.name} has sent you *Super Dare of 2020* %F0%9F%A4%97 %0A%F0%9F%8E%AF *Take this DARE NOW* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
+                    href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know whether you are his/her Best friend or not? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
                     backgroundColor: '#1cb06d',
                     color: 'white',
                     alignItems: 'center',
@@ -235,7 +236,7 @@ class Quiz extends Component {
                   }}>
                    <img src={require('../assets/img/whatsapp.svg')}
                   style={{width: 18, marginRight: 4,marginBottom: 2}} />
-                    Add to WhatsApp Status</a>
+                   Share on Whatsapp Status</a>
                     </div>
                     <div className='col-sm-6'>
                     <button type="button" className="btn btn-block insta-button" style={{
@@ -251,7 +252,7 @@ class Quiz extends Component {
                   >
                   </div>
                   <button type="button" className="btn btn-block" style={{
-                    backgroundColor: 'maroon',
+                    backgroundColor: colors.ThemeColor,
                     color: 'white',
                     marginTop: 12
                   }} onClick={() => this.props.history.push(`/quiz/${quizKey.slice(1)}`)}>

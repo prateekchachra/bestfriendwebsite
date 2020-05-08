@@ -1,7 +1,7 @@
 {
     "main": {
       "title": [
-          "Super dare of 2020",
+          "Who is your Best friend? Let’s find out!",
            "Super dare of 2020"
         ],
       "languageSelect": [
@@ -9,7 +9,7 @@
           "Seleccionar Idioma :"
       ],
       "nameSelect": [
-        "Enter your Name (eg. John) :",
+        "Enter your Name (eg. Rahul) :",
         "Introduce su nombre (por ejemplo, Juan)"
       ],
       "nameWarning": [

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Box from '../components/main/Box';
 import { questions } from '../assets/questions';
 import Firebase from '../utils/firebaseConfig';
+import { colors } from '../assets/styles/theme';
 // create a component
 class QuizResult extends Component {
 
@@ -71,7 +72,7 @@ class QuizResult extends Component {
                 <button type="button" className="btn btn-center"
                     
                     style={{
-                        backgroundColor: 'maroon',
+                        backgroundColor: colors.ThemeColor,
                         color: 'white',
                         textAlign: 'center'
                     }} onClick={this.goToQuiz}>Go Back</button>
