@@ -227,7 +227,7 @@ class Quiz extends Component {
                     style={{
                         fontSize: 24
                     }}>
-                        Super dare of 2020
+                        Best Friend Challenge 2020
                     </p>
 
                 <p style={{

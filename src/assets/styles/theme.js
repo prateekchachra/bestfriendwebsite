@@ -1,4 +1,4 @@
 export const colors = {
-ThemeColor:'#C500ED',
+ThemeColor:'#9932CC',
 
 };
