@@ -11,15 +11,16 @@ export default class Header extends Component {
         return (
  
               
-            <h4 style={{
+            <h4  style={{
                 backgroundColor: colors.ThemeColor,
                 textAlign: 'flex-start',
                 color: 'white',
                 paddingTop: 6,
-                paddingBottom: 6
+                paddingBottom: 6,
+                fontSize: 16
             }}>
-                  <img src={require('../../assets/img/icon.png')}
-                  style={{width: 30,marginRight: 14,}} />
+                  <img className='img-fluid' src={require('../../assets/img/header-img.png')}
+                  style={{width: 120,marginRight: 8,}} />
                Best Friend Challenge 2020
             </h4>
         )

@@ -12,7 +12,7 @@ class MyClass extends Component {
             flex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#f8f9fa',
+            backgroundColor: '#e8e9f0',
             borderWidth: 2,
             borderColor: '#000',
             ...style

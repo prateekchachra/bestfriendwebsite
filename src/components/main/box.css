@@ -2,6 +2,8 @@
    box-shadow: 0 10px 3px rgba(10,10,10,.1);
    -webkit-box-shadow: 0 10px 3px rgba(10,10,10,.1);
     border-radius: 10px;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 .box_container:after, .box_container:before{
     background-color: #2ed573;
@@ -15,7 +17,7 @@
     content: "";
     -webkit-box-sizing: inherit;
    box-sizing: inherit;
-    height: 17px;
+    height: 20px;
     width: 97%;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;

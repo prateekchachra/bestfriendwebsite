@@ -32,14 +32,24 @@ import 'bootstrap/dist/css/bootstrap.css'
       <div className='row'>
      <div className="col-1 col-sm-2 col-lg-2"></div>
      <Box classes='col-10 col-sm-8 col-lg-8 box_container'
-      style={{padding: 20}}>
-     <Circles />
-       <p className='text-center font-weight-bold'
+      style={{paddingBottom: 20, paddingLeft: 20, paddingRight: 20}}>
+    
+    <div className='text-center'>
+     <img 
+             className='img-fluid'
+            src={require('./assets/img/header-img.png')} 
+              style={{width: 380, marginBottom: 32}}/>
+            <img 
+             className='img-fluid'
+            src={require('./assets/img/info-img.png')} 
+              style={{width: 720, marginBottom: 32}}/>
+  </div>
+       {/* <p className='text-center font-weight-bold'
        style={{
          fontSize: 24
        }}>
         <Translate id="main.title" />
-       </p>
+       </p> */}
 
       <form onSubmit={(event) => {
          event.preventDefault();
