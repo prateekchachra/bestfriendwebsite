@@ -115,7 +115,7 @@ import 'bootstrap/dist/css/bootstrap.css'
        <button type="submit" value="Submit" className="btn btn-block" style={{
          backgroundColor: colors.ThemeColor,
          color: 'white'
-       }}><Translate id="main.createQuiz" /></button>
+       }}><span>{'\u{1F449}'}</span><Translate id="main.createQuiz" /></button>
   
       </form>
      </Box>
