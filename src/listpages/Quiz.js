@@ -236,7 +236,7 @@ class Quiz extends Component {
                   }}>
                    <img src={require('../assets/img/whatsapp.svg')}
                   style={{width: 18, marginRight: 4,marginBottom: 2}} />
-                   Share on Whatsapp Status</a>
+                   Share on Whatsapp</a>
                     </div>
                     <div className='col-sm-6'>
                     <button type="button" className="btn btn-block insta-button" style={{
