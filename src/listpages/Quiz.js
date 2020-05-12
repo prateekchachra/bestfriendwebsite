@@ -229,7 +229,7 @@ class Quiz extends Component {
                     <div className='col-sm-6'>
                     <a target='_blank'  
                     href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know whether you are his/her Best friend or not? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
-                    backgroundColor: '#1cb06d',
+                    backgroundColor: '#25d366',
                     color: 'white',
                     alignItems: 'center',
                     marginTop: 6,
