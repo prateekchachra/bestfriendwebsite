@@ -6,7 +6,7 @@
     margin-bottom: 24px;
 }
 .box_container:after, .box_container:before{
-    background-color: #2ed573;
+    background-color: #ff4757;
     display: inline-block;
     position: absolute;
     left: 0;
@@ -17,9 +17,9 @@
     content: "";
     -webkit-box-sizing: inherit;
    box-sizing: inherit;
-    height: 20px;
+    height: 22px;
     width: 97%;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
-    top: calc(100% - 11px);
+    top: calc(100% - 8px);
 }

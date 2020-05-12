@@ -48,8 +48,8 @@ class RouterComponent extends React.Component {
   
   {
     let config = {
-      num: [4, 7],
-      rps: 0.1,
+      num: [2, 3],
+      rps: 0.2,
       radius: [5, 40],
       life: [1.5, 3],
       v: [2, 3],
@@ -58,7 +58,6 @@ class RouterComponent extends React.Component {
       scale: [.1, 0.9],
       body: icon,
       position: "all",
-      //color: ["random", "#ff0000"],
       cross: "dead",
       random: 10
     };

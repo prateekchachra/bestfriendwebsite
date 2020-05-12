@@ -27,13 +27,13 @@
     },
     "footer": {
         "description" : [
-            "Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard.",
+            "Once your friends attempt the quiz you will see the results on leaderboard.",
             "Selecciona tu País, Introduce tu Nombre, Correo, Crea tu Test y Compártelo con tus amigos en Facebook o Whatsapp. Cuando tus amigos terminen el test verás los resultados en el marcador."
 
         ],
         "aboutus" : [
-            "About Us",
-            "Sobre"
+            "About Us ",
+            "Sobre "
 
         ],
         "contactus" : [

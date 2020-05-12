@@ -38,7 +38,7 @@ class Footer extends Component {
                   
                 }}>
                 <p style={{marginTop: 24}}>
-                <Translate id="footer.description"/>
+                {/* <Translate id="footer.description"/> */}
                 </p>
                 </div>
                 <div className='col-3 col-sm-3 col-lg-4 '></div>
@@ -51,17 +51,20 @@ class Footer extends Component {
                     marginTop: 200
                 }}></div>
                 <div className='row'>
-              <div className='col-4 col-sm-3 col-lg-4'></div>
+              <div className='col-2 col-sm-3 col-lg-4'></div>
                
 
-                <div className='text-center col-4 col-sm-6 col-lg-4'>
-
+                <div className='text-center col-8 col-sm-6 col-lg-4'>
+                <p>
                 <a href='/about-us'>
-                <p><Translate id="footer.aboutus"/></p>
+             <Translate id="footer.aboutus"/>
                 </a>
+              
                 <a href='/contact-us'>
-                <p><Translate id="footer.contactus"/></p>
+                <Translate id="footer.contactus"/>
+             
                 </a>
+                </p>
                 <a href='/faq'>
                 <p><Translate id="footer.faq"/></p>
                 </a>
@@ -70,7 +73,7 @@ class Footer extends Component {
                 </a>
 
                 </div>
-                <div className='text-center col-4 col-sm-3 col-lg-4'>
+                <div className='text-center col-2 col-sm-3 col-lg-4'>
                 </div>
              
             </div>
