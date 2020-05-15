@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { Translate } from "react-localize-redux";
-
+import AdSense from 'react-adsense';
 import styles from '../../assets/styles/footer.css'
 // create a component
 class Footer extends Component {
@@ -30,6 +30,22 @@ class Footer extends Component {
         return (
             <div className='container'>
               <div className='row'>
+              <div className='col-12 col-sm-12 col-lg-12'>
+          <p className='text-center'>
+          <AdSense.Google
+                client='ca-pub-4735074613807586'
+                slot='9097993451'
+                style={{ display: 'block' }}
+                format='auto'
+                responsive='true'
+                layoutKey='-gw-1+2a-9x+5c'
+              />
+          </p>
+
+              </div>
+              </div>
+              <div className='row'>
+           
               <div className='col-3 col-sm-3 col-lg-4 '></div>
             <div className="text-center col-6 col-sm-6 col-lg-4" style={{
                     flex: 1,
@@ -37,8 +53,10 @@ class Footer extends Component {
                     alignItems: 'center',
                   
                 }}>
+
                 <p style={{marginTop: 24}}>
                 {/* <Translate id="footer.description"/> */}
+               
                 </p>
                 </div>
                 <div className='col-3 col-sm-3 col-lg-4 '></div>

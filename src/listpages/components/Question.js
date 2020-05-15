@@ -110,7 +110,8 @@ class Question extends Component {
           height: (this.state.width/4 * 0.9),
         }} src={option.image} />
         <p style={{
-              overflow: 'scroll',
+              overflow: 'auto',
+              wordWrap: 'break-word',
               marginTop: 8,
               width: this.state.width/4,
               color: isWhiteBackground ? 'white' : '#000'

@@ -1,6 +1,6 @@
 {
-  "name": "friend2020",
-  "version": "0.1.0",
+  "name": "bestfriendchallenge",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,6 +12,7 @@
     "node-sass": "^4.13.1",
     "particles-bg": "^2.5.0",
     "react": "^16.13.1",
+    "react-adsense": "^0.1.0",
     "react-bootstrap": "^1.0.0",
     "react-d3-speedometer": "^0.11.0",
     "react-dom": "^16.13.1",
