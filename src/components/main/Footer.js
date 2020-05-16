@@ -30,7 +30,8 @@ class Footer extends Component {
         return (
             <div className='container'>
               <div className='row'>
-              <div className='col-12 col-sm-12 col-lg-12'>
+              <div className='col-1 col-sm-2 col-lg-2 '></div>
+              <div className='col-10 col-sm-8 col-lg-8'>
           <p className='text-center'>
           <AdSense.Google
                 client='ca-pub-4735074613807586'
@@ -38,11 +39,11 @@ class Footer extends Component {
                 style={{ display: 'block' }}
                 format='auto'
                 responsive='true'
-                layoutKey='-gw-1+2a-9x+5c'
               />
           </p>
 
               </div>
+              <div className='col-1 col-sm-2 col-lg-2 '></div>
               </div>
               <div className='row'>
            
@@ -66,7 +67,7 @@ class Footer extends Component {
                     height: 1,
                     backgroundColor: '#a0a0a0',
                     marginBottom: 24,
-                    marginTop: 200
+                    marginTop: 24
                 }}></div>
                 <div className='row'>
               <div className='col-2 col-sm-3 col-lg-4'></div>
