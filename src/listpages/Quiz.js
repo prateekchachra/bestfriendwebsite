@@ -88,7 +88,8 @@ class Quiz extends Component {
           answers,
           scores: []
         }).then(snap => {
-          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis.layers.refresh())
+          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis ? 
+          window.addthis.layers.refresh() : null)
         }).catch(err => console.log(err))
           return;
       }
@@ -147,7 +148,7 @@ class Quiz extends Component {
         </Modal.Body>
       </Modal>
               <LoadScript 
-     url="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ea58ea57cc6edcd" 
+     url="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ea58ea57cc6edcd" 
     onLoad={this.handleScriptLoad}
     />    
             <div className='row'>
