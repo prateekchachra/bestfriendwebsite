@@ -63,6 +63,40 @@ class Quiz extends Component {
 
 
 
+
+    makeGrammaticallyCorrect = (title, name, iteration) => {
+      let updatedTitle = ''
+   
+      if(title.includes('Do you')){
+        
+        updatedTitle = title.replace('Do you', 'Does ' +  (iteration === 2 ? 'he/she' : name))
+    }
+    else if(title.includes('do you')){
+         updatedTitle =  title.replace('do you','does ' + (iteration === 2 ? 'he/she' : name))
+     }
+     else if(title.includes('to you')){
+         updatedTitle =  title.replace('to you','to ' + (iteration === 2 ? 'him/her' : name))
+     }
+     
+     else if(title.includes('are you')){
+         updatedTitle =  title.replace('are you','is ' + (iteration === 2 ? 'he/she' : name))
+     }
+     else if(title.includes('you ')){
+         updatedTitle =  title.replace('you ', (iteration === 2 ? 'he/she' : name) + ' ')
+     }
+     else if(title.includes('You ')){
+         updatedTitle =  title.replace('You ', (iteration === 2 ? 'He/She' : name) + ' ')
+     }
+    else if(title.includes('your ')){
+        updatedTitle =  title.replace('your ', (iteration === 2 ? 'his/her ' : name + "'s "))
+    }
+    else {
+        updatedTitle = title;
+    }
+
+    return updatedTitle;
+    }
+
     componentWillMount() {
         const {match: {params}, history} = this.props;
     
@@ -81,37 +115,14 @@ class Quiz extends Component {
                     const {title} = item;
                     let updatedItem = {...item};
 
-                    let updatedTitle = ''
-                    if(title.includes('Do you')){
-                        updatedTitle = title.replace('Do you', 'Does ' + name)
-                    }
-                    if(title.includes('do you')){
-                         updatedTitle =  title.replace('do you','does ' + name)
-                     }
-                     if(title.includes('to you')){
-                         updatedTitle =  title.replace('to you','to ' + name)
-                     }
-                     
-                     if(title.includes('are you')){
-                         updatedTitle =  title.replace('are you','is ' + name)
-                     }
-                     if(title.includes('you ')){
-                         updatedTitle =  title.split('you ').join(name + ' ')
-                     }
-                     if(title.includes('You ')){
-                         updatedTitle =  title.replace('You ', name + ' ')
-                     }
-                    if(title.includes('your ')){
-                        updatedTitle =  title.replace('your ', name + "'s ")
-                    }
-                    else {
-                        updatedTitle = title;
-                    }
+                let updatedTitle = this.makeGrammaticallyCorrect(title, name, 1)
 
+              
 
-                        updatedItem.title = updatedTitle;
+                        updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
                         updatedQuestions.push(updatedItem)
                 })
+                console.log(updatedQuestions)
                this.setState({answers,quizRef, name,scores: scores ? scores : [],
                 activeQuestion: answers[0].question, quizId: params.quizId,
                 questionsListForScoring: updatedQuestions})
