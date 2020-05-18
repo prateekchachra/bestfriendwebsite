@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Box from '../components/main/Box';
 import { questions } from '../assets/questions';
 import Firebase from '../utils/firebaseConfig';
+import ReactGA from 'react-ga';
 import { colors } from '../assets/styles/theme';
 // create a component
 class QuizResult extends Component {
@@ -48,11 +49,16 @@ class QuizResult extends Component {
         }
     }
     componentDidMount() {
+        ReactGA.pageview(window.location.pathname + window.location.search);
         window.scrollTo(0, 0)
     }
     goToQuiz = () => {
         const {match: {params}, history} = this.props;
-
+        ReactGA.event({
+            category: 'Button Click',
+            action: 'Went back to quiz results',
+            
+          })
         history.push(`/quiz/${params.quizId}/`)
     }
     render() {

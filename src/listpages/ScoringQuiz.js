@@ -3,6 +3,7 @@ import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
 import firebase from '../utils/firebaseConfig'
 import ReactSpeedometer from "react-d3-speedometer"
+import ReactGA from 'react-ga';
 import {OverlayTrigger, Popover} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
@@ -84,23 +85,23 @@ class Quiz extends Component {
                     if(title.includes('Do you')){
                         updatedTitle = title.replace('Do you', 'Does ' + name)
                     }
-                    else if(title.includes('do you')){
+                    if(title.includes('do you')){
                          updatedTitle =  title.replace('do you','does ' + name)
                      }
-                     else if(title.includes('to you')){
+                     if(title.includes('to you')){
                          updatedTitle =  title.replace('to you','to ' + name)
                      }
                      
-                     else if(title.includes('are you')){
+                     if(title.includes('are you')){
                          updatedTitle =  title.replace('are you','is ' + name)
                      }
-                     else if(title.includes('you ')){
-                         updatedTitle =  title.replace('you ', name + ' ')
+                     if(title.includes('you ')){
+                         updatedTitle =  title.split('you ').join(name + ' ')
                      }
-                     else if(title.includes('You ')){
+                     if(title.includes('You ')){
                          updatedTitle =  title.replace('You ', name + ' ')
                      }
-                    else if(title.includes('your ')){
+                    if(title.includes('your ')){
                         updatedTitle =  title.replace('your ', name + "'s ")
                     }
                     else {
@@ -120,6 +121,7 @@ class Quiz extends Component {
       }
       componentDidMount() {
         this.updateWindowDimensions();
+        ReactGA.pageview(window.location.pathname + window.location.search);
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -132,6 +134,12 @@ class Quiz extends Component {
       }
 
       copyToClipboard = () => {
+
+        ReactGA.event({
+          category: 'Button Click',
+          action: 'Copied the link to share',
+          
+        })
         const el = this.textArea
         el.select()
         document.execCommand("copy")
@@ -141,8 +149,14 @@ class Quiz extends Component {
       receiveAnswerFromClickEvent= (id, answerId, isRight) => {
 
 
-
+        
         const {activeItem, guestName, totalScore, answers,scores, answersByGuest, quizRef} = this.state;
+
+        ReactGA.event({
+                  category: 'Question clicked - Solution',
+                  action: 'Clicked a question while solving the quiz',
+                  value: activeItem
+                });
 
         answersByGuest.push({answer: answerId, question: id})
         if(activeItem ===20){
@@ -217,6 +231,12 @@ class Quiz extends Component {
                 this.setState({errors})
             }
             else {
+
+          ReactGA.event({
+            category: 'Button Click',
+            action: 'Submitted Name And Played Quiz',
+            value: 3
+          });
             this.setState({hasQuizStarted: true})
             }
             }}>
@@ -233,6 +253,7 @@ class Quiz extends Component {
                 <p style={{
 
                   fontSize: 20,
+                  marginTop: 12,
                   fontWeight: 'bold'
                 }}>How well do you know {name}?</p>
                 </div>
@@ -310,6 +331,8 @@ class Quiz extends Component {
                 </p>
                 <ReactSpeedometer  maxValue={20}
                 value={totalScore}
+                width={280}
+                
                 minValue={0}
                 needleColor={colors.ThemeColor}
                 currentValueText={totalScore.toString()}
@@ -340,7 +363,14 @@ class Quiz extends Component {
                     color: 'white',
                     marginTop: -24,
                     marginBottom: 24
-                }} onClick={() => this.props.history.push('/')}>Create Your Quiz</button>
+                }} onClick={() => {
+                  
+                    ReactGA.event({
+                      category: 'Button Click',
+                      action: 'Create A Quiz After Solving One',
+                      value: 3
+                    });
+                  this.props.history.push('/')}}>Create Your Quiz</button>
                    <div>
                   <p className='text-center font-weight-bold'
                     style={{
@@ -364,7 +394,15 @@ class Quiz extends Component {
                               state: {
                                 score: item
                               }
-                            }}>{item.name} </Link></td>
+                            }}
+                            onClick={() => 
+                          ReactGA.event({
+                            category: 'Button Click',
+                            action: 'Viewed A Quiz Result',
+                            value: item.name
+                          })
+                            }
+                            >{item.name} </Link></td>
                                <td>{item.score}</td>
                                </tr>
                         ))}

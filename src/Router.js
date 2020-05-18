@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { renderToStaticMarkup } from "react-dom/server";
 import App from './App';
 import Quiz from './listpages/Quiz';
+import ReactGA from "react-ga";
 import icon from './assets/img/heart.js'
 import ParticlesBg from "particles-bg";
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
@@ -43,6 +44,10 @@ class RouterComponent extends React.Component {
       });
   
     }
+
+    componentDidMount() {
+      ReactGA.initialize('UA-157372438-2');
+   }
   
     render()
   

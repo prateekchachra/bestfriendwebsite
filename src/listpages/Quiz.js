@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
 import firebase from '../utils/firebaseConfig'
+import {saveName} from '../listpages/actions'
 import {OverlayTrigger, Popover, Modal} from 'react-bootstrap';
 import * as LoadScript from 'react-load-script';
 import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
 import _ from 'lodash'
+import ReactGA from 'react-ga';
 import { css } from "@emotion/core";
 import Question from './components/Question';
 import RingLoader from "react-spinners/RingLoader";
@@ -31,12 +33,27 @@ const popover = (
 class Quiz extends Component {
 
     constructor(props){
-
+      super(props);
       const {main} = props;
+
+      let savedQuiz = false;
+      let quizKey = ''
       if(!main.name || main.name === ''){
+      
+        quizKey = localStorage.getItem('quizKey')
+        
+        if(quizKey){
+          let name = localStorage.getItem('quizName')
+          this.props.saveName(name)
+          savedQuiz = true;
+        }
+        else {
+
         props.history.push('/')
+        }
       }
-        super(props);
+        ReactGA.pageview(window.location.pathname + window.location.search);
+
         this.state = {
             questionsList: _.shuffle(questions),
             askedQuestions: [],
@@ -44,14 +61,15 @@ class Quiz extends Component {
             activeItem: 1,
             width: 0, height: 0, 
             saveQuizProcessing: false,
-            savedQuiz: false,
+            savedQuiz,
             showInstagramModal: false,
-            quizKey: ''
+            quizKey: quizKey ? quizKey : ''
         }
     }
 
       
       componentDidMount() {
+        ReactGA.pageview(window.location.pathname + window.location.search);
         window.addEventListener('resize', this.updateWindowDimensions);
       }
       
@@ -64,6 +82,13 @@ class Quiz extends Component {
       }
 
       copyToClipboard = () => {
+
+        ReactGA.event({
+          category: 'Button Click',
+          action: 'Copy Link',
+          value: this.state.activeItem
+        });
+
         const el = this.textArea
         el.select()
         document.execCommand("copy")
@@ -72,7 +97,13 @@ class Quiz extends Component {
     
       receiveAnswerFromClickEvent= (id, answerId) => {
         const {answers, questionsList, askedQuestions, activeItem} = this.state;
-
+          
+        ReactGA.event({
+            category: 'Question',
+            action: 'Clicked on question',
+            value: activeItem
+          });
+      
         askedQuestions.push(questionsList[0])
         answers.push({question: id,answer: answerId})
 
@@ -88,6 +119,10 @@ class Quiz extends Component {
           answers,
           scores: []
         }).then(snap => {
+
+          localStorage.setItem('quizName',this.props.main.name);
+          localStorage.setItem('quizKey', snap.key);
+
           this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis ? 
           window.addthis.layers.refresh() : null)
         }).catch(err => console.log(err))
@@ -104,6 +139,11 @@ class Quiz extends Component {
 
       
         const {questionsList} = this.state;
+        ReactGA.event({
+          category: 'Question',
+          action: 'Skipped a question',
+          value: this.state.activeItem
+        });
         let skippedQuestion = questionsList.splice(0, 1)
         questionsList.push(skippedQuestion[0])
 
@@ -114,7 +154,9 @@ class Quiz extends Component {
     handleScriptLoad=()=>{    
       window.addthis.init();
       window.addthis.toolbox('.addthis_toolbox')    
-      window.addthis.layers.refresh()    
+      if(window.addthis.layers && window.addthis.layers.refresh) {
+        window.addthis.layers.refresh();
+      }    
       console.log("addthis Loaded");
     }
 
@@ -244,7 +286,13 @@ class Quiz extends Component {
                 
                     color: 'white',
                     marginTop: 6
-                  }} onClick={() => this.setState({showInstagramModal: true})}>Add To Instagram Bio</button>
+                  }} onClick={() => {
+                    ReactGA.event({
+                      category: 'Social Button Click',
+                      action: 'Instagram Social Button Clicked',
+                      value: this.state.activeItem
+                    });
+                    this.setState({showInstagramModal: true})}}>Add To Instagram Bio</button>
                     </div>
                   </div>
                   <div className="addthis_inline_share_toolbox"
@@ -256,7 +304,15 @@ class Quiz extends Component {
                     backgroundColor: colors.ThemeColor,
                     color: 'white',
                     marginTop: 12
-                  }} onClick={() => this.props.history.push(`/quiz/${quizKey.slice(1)}`)}>
+                  }} onClick={() =>{
+                    
+                    
+                    ReactGA.event({
+                      category: 'Button Click',
+                      action: 'Clicked on View Results',
+                      value: this.state.activeItem
+                    });
+                    this.props.history.push(`/quiz/${quizKey.slice(1)}`)}}>
                       <span>{'\u{1F449}'}</span> View Results</button>
                
                     </div>
@@ -299,4 +355,4 @@ const mapStateToProps = (state) => ({
   main: state.main
 })
 
-export default connect(mapStateToProps, {})(Quiz)
+export default connect(mapStateToProps, {saveName})(Quiz)

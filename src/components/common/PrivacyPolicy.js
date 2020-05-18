@@ -1,8 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
-import Header from '../main/Header';
+import ReactGA from 'react-ga';
 // create a component
 class AboutUs extends Component {
+
+    componentDidMount() {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }
     render() {
         return (
             <div style={{

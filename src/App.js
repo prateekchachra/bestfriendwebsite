@@ -4,6 +4,7 @@ import Box from './components/main/Box';
 import {saveName, changeLanguage} from './listpages/actions'
 import { withLocalize, Translate } from "react-localize-redux";
 import Circles from './components/main/Circles';
+import ReactGA from 'react-ga';
 import {colors} from './assets/styles/theme'
 // will be automatically minified ny webpack
 import 'bootstrap/dist/css/bootstrap.css'
@@ -12,7 +13,15 @@ import 'bootstrap/dist/css/bootstrap.css'
   constructor(props) {
     super(props);
 
-
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    let quizKey = localStorage.getItem("quizKey");
+    let name = localStorage.getItem("quizName");
+   
+      if(name && quizKey && name !== '' && quizKey !== ''){
+        //Add localization later
+        this.props.history.push('/en/quiz')
+      }
+    
     this.state = {language:'en', name: '', errors: {} };
   }
   
@@ -38,11 +47,11 @@ import 'bootstrap/dist/css/bootstrap.css'
      <img 
              className='img-fluid'
             src={require('./assets/img/header-img.png')} 
-              style={{width: 380, marginBottom: 32}}/>
+              style={{width: 380, }}/>
             <img 
              className='img-fluid'
             src={require('./assets/img/info-img.png')} 
-              style={{width: 720, marginBottom: 32}}/>
+              style={{width: '100%', marginBottom: 12}}/>
   </div>
        {/* <p className='text-center font-weight-bold'
        style={{
