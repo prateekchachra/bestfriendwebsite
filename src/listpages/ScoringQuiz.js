@@ -122,7 +122,6 @@ class Quiz extends Component {
                         updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
                         updatedQuestions.push(updatedItem)
                 })
-                console.log(updatedQuestions)
                this.setState({answers,quizRef, name,scores: scores ? scores : [],
                 activeQuestion: answers[0].question, quizId: params.quizId,
                 questionsListForScoring: updatedQuestions})
