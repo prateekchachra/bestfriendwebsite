@@ -114,16 +114,16 @@ class Quiz extends Component {
                  
                     const {title} = item;
                     let updatedItem = {...item};
-
-                let updatedTitle = this.makeGrammaticallyCorrect(title, name, 1)
-
               
+                    let updatedTitle = this.makeGrammaticallyCorrect(title, name, 1)
 
-                        updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
-                        updatedQuestions.push(updatedItem)
+
+
+                updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
+                updatedQuestions.push(updatedItem)
                 })
-               this.setState({answers,quizRef, name,scores: scores ? scores : [],
-                activeQuestion: answers[0].question, quizId: params.quizId,
+                this.setState({answers,quizRef, name,scores: scores ? scores : [],
+       activeQuestion: answers[0].question, quizId: params.quizId,
                 questionsListForScoring: updatedQuestions})
            }
         })

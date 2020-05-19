@@ -896,34 +896,7 @@ export const questions = [{
 
 
 },
-{
-    id: 42,
-    title: "Which one you drink the most?",
-    options: [
-        {
-            title: 'Cold Coffee',
-             optionId: 'a',
-            image: require('../img/42/a.jpg')
-        },
-        {
-            title: 'Tea',
-            optionId: 'b',
-            image: require('../img/42/b.jpg')
-        },
-        {
-            title: 'Hot Coffee',
-            optionId: 'c',
-            image: require('../img/42/c.jpg')
-        },
-        {
-            title: 'Cold Drink',
-            optionId: 'd',
-            image: require('../img/42/d.jpg')
-        },
-    ],
 
-
-},
 {
     id: 34,
     title: 'Which type of shopping do you like?',
@@ -1002,60 +975,33 @@ export const questions = [{
 
 {
     id: 37,
-    title: 'Which type of wedding do you like?',
+    title: 'What do you put in WhatsApp status often?',
     options: [
         {
-            title: 'Simple Marriage',
+            title: 'Memes',
              optionId: 'a',
-            image: require('../img/37/a.jpg')
+            image: require('../img/44/a.jpg')
         },
         {
-            title: 'Court Marriage',
+            title: 'Motivational Quotes',
             optionId: 'b',
-            image: require('../img/37/b.jpg')
+            image: require('../img/44/b.jpg')
         },
         {
-            title: 'Destination Marriage',
+            title: 'Love Songs',
             optionId: 'c',
-            image: require('../img/37/c.jpg')
+            image: require('../img/44/c.jpg')
         },
         {
-            title: 'Live-in Relationship',
+            title: 'Others',
             optionId: 'd',
-            image: require('../img/37/d.jpg')
+            image: require('../img/44/d.jpg')
         },
     ],
 
 
 },
-{
-    id: 40,
-    title: 'Which movie genre do you like watching?',
-    options: [
-        {
-            title: 'Action',
-             optionId: 'a',
-            image: require('../img/40/a.jpg')
-        },
-        {
-            title: 'Romance',
-            optionId: 'b',
-            image: require('../img/40/b.jpg')
-        },
-        {
-            title: 'Comedy',
-            optionId: 'c',
-            image: require('../img/40/c.jpg')
-        },
-        {
-            title: 'Fantasy',
-            optionId: 'd',
-            image: require('../img/40/d.jpg')
-        },
-    ],
 
-
-},
 
 {
     id: 38,
@@ -1129,6 +1075,34 @@ export const questions = [{
 
 },
 {
+    id: 40,
+    title: 'Which movie genre do you like watching?',
+    options: [
+        {
+            title: 'Action',
+             optionId: 'a',
+            image: require('../img/40/a.jpg')
+        },
+        {
+            title: 'Romance',
+            optionId: 'b',
+            image: require('../img/40/b.jpg')
+        },
+        {
+            title: 'Comedy',
+            optionId: 'c',
+            image: require('../img/40/c.jpg')
+        },
+        {
+            title: 'Fantasy',
+            optionId: 'd',
+            image: require('../img/40/d.jpg')
+        },
+    ],
+
+
+},
+{
     id: 41,
     title: 'What is your Favourite Ice-Cream?',
     options: [
@@ -1167,6 +1141,34 @@ export const questions = [{
 
 },
 {
+    id: 42,
+    title: "Which one you drink the most?",
+    options: [
+        {
+            title: 'Cold Coffee',
+             optionId: 'a',
+            image: require('../img/42/a.jpg')
+        },
+        {
+            title: 'Tea',
+            optionId: 'b',
+            image: require('../img/42/b.jpg')
+        },
+        {
+            title: 'Hot Coffee',
+            optionId: 'c',
+            image: require('../img/42/c.jpg')
+        },
+        {
+            title: 'Cold Drink',
+            optionId: 'd',
+            image: require('../img/42/d.jpg')
+        },
+    ],
+
+
+},
+{
     id: 43,
     title: 'What do you prefer?',
     options: [
@@ -1184,32 +1186,5 @@ export const questions = [{
 
 
 },
-{
-    id: 44,
-    title: 'What do you put in WhatsApp status often?',
-    options: [
-        {
-            title: 'Memes',
-             optionId: 'a',
-            image: require('../img/44/a.jpg')
-        },
-        {
-            title: 'Motivational Quotes',
-            optionId: 'b',
-            image: require('../img/44/b.jpg')
-        },
-        {
-            title: 'Love Songs',
-            optionId: 'c',
-            image: require('../img/44/c.jpg')
-        },
-        {
-            title: 'Others',
-            optionId: 'd',
-            image: require('../img/44/d.jpg')
-        },
-    ],
 
-
-},
 ]
