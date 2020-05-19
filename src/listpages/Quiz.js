@@ -297,7 +297,7 @@ class Quiz extends Component {
                   </div>
                   <div className="addthis_inline_share_toolbox"
                    style={{marginTop: 24}}
-                  data-url={`${window.location.origin}/quiz/${quizKey.slice(1)}`} data-title={`${this.props.main.name} wants to know how well do you know him/her? Play His Friendship Quiz Now!`}
+                  data-url={`${window.location.origin}/quiz/${quizKey.slice(1)}`} data-title={`${this.props.main.name} wants to know how well do you know him/her? Play His/Her Friendship Quiz Now!`}
                   >
                   </div>
                   <button type="button" className="btn btn-block" style={{
