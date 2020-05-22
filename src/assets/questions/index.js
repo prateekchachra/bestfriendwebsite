@@ -315,7 +315,7 @@ export const questions = [{
 },
 {
     id: 12,
-    title: 'What Is Your Sleeping Style?',
+    title: 'What is your sleeping style?',
     options: [
         {
             title: 'Sleep on stomach',
