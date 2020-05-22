@@ -271,7 +271,7 @@ class Quiz extends Component {
                   <div className='row'>
                     <div className='col-sm-6'>
                     <a target='_blank'  
-                    href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know how well do you know him/her? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)}`} role="button" className="btn btn-block" style={{
+                    href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know how well do you know him/her? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His/Her Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A ${window.location.origin}/quiz/${quizKey.slice(1)} %0A%F0%9F%8E%AF *Create your own quiz using this link!* %F0%9F% ${window.location.origin}`} role="button" className="btn btn-block" style={{
                     backgroundColor: '#25d366',
                     color: 'white',
                     alignItems: 'center',

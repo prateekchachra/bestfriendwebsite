@@ -4,7 +4,7 @@ import styles from '../assets/styles/quiz.css';
 import firebase from '../utils/firebaseConfig'
 import ReactSpeedometer from "react-d3-speedometer"
 import ReactGA from 'react-ga';
-import {OverlayTrigger, Popover} from 'react-bootstrap';
+import {OverlayTrigger, Popover, Modal} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
 import {questions} from '../assets/questions'
@@ -52,6 +52,7 @@ class Quiz extends Component {
             hasQuizStarted: false,
             savedScore: false,
             activeQuestion: 0,
+            showCreateQuizPopup: false,
             totalScore: 0,
             errors: {},
             name: '',
@@ -122,6 +123,7 @@ class Quiz extends Component {
                 updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
                 updatedQuestions.push(updatedItem)
                 })
+                scores.sort((b,a) => a.score - b.score);
                 this.setState({answers,quizRef, name,scores: scores ? scores : [],
        activeQuestion: answers[0].question, quizId: params.quizId,
                 questionsListForScoring: updatedQuestions})
@@ -177,7 +179,9 @@ class Quiz extends Component {
             quizRef.update({
               scores
             }).then(snap => {
-              this.setState({savedScore: true, })}
+              this.setState({savedScore: true, }, () => setTimeout(() => {
+                this.setState({showCreateQuizPopup: true})
+              }, 2000))}
               );
         }
         else 
@@ -189,6 +193,7 @@ class Quiz extends Component {
     render(){
         const {questionsListForScoring, name,
             guestName,scores,totalScore,
+            showCreateQuizPopup,
             quizId,
             activeQuestion, answers,savedScore,
              activeItem,
@@ -198,6 +203,36 @@ class Quiz extends Component {
 
         return(
           <div className='container'>
+                    <Modal
+                   centered
+        show={showCreateQuizPopup}
+        onHide={() => this.setState({showCreateQuizPopup: false})}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
+         Click Below To Create Your Own Quiz Now!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <button type="button"
+        className="btn btn-block" style={{
+                    backgroundColor: 'yellowgreen',
+                    color: 'white',
+                    marginTop: 48,
+                    marginBottom: 48,
+                    height: 80,
+                    fontSize: 18,
+                    fontWeight: 'bold'                
+                }} onClick={() => {
+                  
+                    ReactGA.event({
+                      category: 'Button Click',
+                      action: 'Create A Quiz After Solving One',
+                      value: 3
+                    });
+                  this.props.history.push('/')}}><span>{'\u{1F449}'}</span> Create Your Own Quiz! <span>{'\u{1F448}'}</span> </button>
+        </Modal.Body>
+      </Modal>
             <div className='row'>
                <div className='col-1 col-sm-2 col-lg-2 '></div>
            <Box classes='col-10 col-sm-8 col-lg-8 box_container' style={{
@@ -369,10 +404,13 @@ class Quiz extends Component {
                 ]}
                 />
                   <button type="button" className="btn btn-block" style={{
-                    backgroundColor: colors.ThemeColor,
+                    backgroundColor: 'yellowgreen',
                     color: 'white',
-                    marginTop: -24,
-                    marginBottom: 24
+                    marginTop: -96,
+                    marginBottom: 24,
+                    height: 80,
+                    fontSize: 18, 
+                    fontWeight: 'bold'                  
                 }} onClick={() => {
                   
                     ReactGA.event({
@@ -380,7 +418,7 @@ class Quiz extends Component {
                       action: 'Create A Quiz After Solving One',
                       value: 3
                     });
-                  this.props.history.push('/')}}>Create Your Quiz</button>
+                  this.props.history.push('/')}}><span>{'\u{1F449}'}</span> Create Your Own Quiz! <span>{'\u{1F448}'}</span> </button>
                    <div>
                   <p className='text-center font-weight-bold'
                     style={{

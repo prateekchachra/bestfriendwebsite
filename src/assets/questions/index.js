@@ -975,27 +975,27 @@ export const questions = [{
 
 {
     id: 37,
-    title: 'What do you put in WhatsApp status often?',
+    title: 'Which type of wedding do you like?',
     options: [
         {
-            title: 'Memes',
+            title: 'Simple Marriage',
              optionId: 'a',
-            image: require('../img/44/a.jpg')
+            image: require('../img/37/a.jpg')
         },
         {
-            title: 'Motivational Quotes',
+            title: 'Court Marriage',
             optionId: 'b',
-            image: require('../img/44/b.jpg')
+            image: require('../img/37/b.jpg')
         },
         {
-            title: 'Love Songs',
+            title: 'Destination Marriage',
             optionId: 'c',
-            image: require('../img/44/c.jpg')
+            image: require('../img/37/c.jpg')
         },
         {
-            title: 'Others',
+            title: 'Live-in Relationship',
             optionId: 'd',
-            image: require('../img/44/d.jpg')
+            image: require('../img/37/d.jpg')
         },
     ],
 
@@ -1182,6 +1182,34 @@ export const questions = [{
             optionId: 'b',
             image: require('../img/43/b.jpg')
         }
+    ],
+
+
+},
+{
+    id: 44,
+    title: 'What do you put in WhatsApp status often?',
+    options: [
+        {
+            title: 'Memes',
+             optionId: 'a',
+            image: require('../img/44/a.jpg')
+        },
+        {
+            title: 'Motivational Quotes',
+            optionId: 'b',
+            image: require('../img/44/b.jpg')
+        },
+        {
+            title: 'Love Songs',
+            optionId: 'c',
+            image: require('../img/44/c.jpg')
+        },
+        {
+            title: 'Others',
+            optionId: 'd',
+            image: require('../img/44/d.jpg')
+        },
     ],
 
 
