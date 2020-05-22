@@ -269,7 +269,7 @@ class Quiz extends Component {
             />
             </>) : (
                 <>
-           {guestName === '' ? (<div style={{padding: 12}}></div>) :
+           {name === '' ? (<div style={{padding: 12}}></div>) :
           
             <form onSubmit={(event) => {
                 event.preventDefault();
