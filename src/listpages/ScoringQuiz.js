@@ -269,12 +269,13 @@ class Quiz extends Component {
             />
             </>) : (
                 <>
-           {name === '' ? (<div style={{padding: 12}}></div>) :
+           {guestName === '' ? (<div style={{padding: 12}}></div>) :
           
             <form onSubmit={(event) => {
                 event.preventDefault();
-            if(name === ''){
-                errors['name'] = 'Name cannot be empty!'
+
+            if(guestName === ''){
+                errors['guestName'] = 'Name cannot be empty!'
                 this.setState({errors})
             }
             else {
@@ -309,11 +310,13 @@ class Quiz extends Component {
                         fontSize: 20
                     }}>Enter your Full Name :</label>
                     <input type="name" className="form-control" id="nameInput"
-                    onChange={(event) => this.setState({guestName: event.target.value, errors: {}})}
+                    onChange={(event) => 
+                      
+                      this.setState({guestName: event.target.value, errors: {}})}
                     value={guestName}
                     aria-describedby="emailHelp" placeholder="Full Name" />
                 </div>
-                {errors['name'] && <p style={{
+                {errors['guestName'] && <p style={{
                     color: 'red',
                     fontSize: 18
                 }}>Name cannot be empty</p>}
