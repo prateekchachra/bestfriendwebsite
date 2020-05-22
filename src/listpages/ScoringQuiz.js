@@ -123,7 +123,9 @@ class Quiz extends Component {
                 updatedItem.title = this.makeGrammaticallyCorrect(updatedTitle, name,2 );
                 updatedQuestions.push(updatedItem)
                 })
-                scores ? scores.sort((b,a) => a.score - b.score) : null;
+                if(scores){
+                  scores.sort((b,a) => a.score - b.score)
+                }
                 this.setState({answers,quizRef, name,scores: scores ? scores : [],
        activeQuestion: answers[0].question, quizId: params.quizId,
                 questionsListForScoring: updatedQuestions})
