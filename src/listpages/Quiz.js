@@ -123,7 +123,8 @@ class Quiz extends Component {
           localStorage.setItem('quizName',this.props.main.name);
           localStorage.setItem('quizKey', snap.key);
 
-          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis ? 
+          this.setState({savedQuiz: true, saveQuizProcessing: false, quizKey: snap.key}, () =>   window.addthis
+          && window.addthis.layers ? 
           window.addthis.layers.refresh() : null)
         }).catch(err => console.log(err))
           return;
