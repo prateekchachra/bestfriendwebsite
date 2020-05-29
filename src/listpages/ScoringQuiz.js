@@ -177,15 +177,20 @@ class Quiz extends Component {
            let netTotal = isRight ? totalScore + 1 : totalScore
           this.setState({totalScore: netTotal, calculateScoreProcessing: true})
 
-          scores.push({name: guestName, score:netTotal, answers: answersByGuest})
+          quizRef.once('value').then(snapshot => {
+            let data = snapshot.val() ? snapshot.val() : null;
+          let latestScores = data.scores  ? [...data.scores] : []
+          latestScores.push({name: guestName, score:netTotal, answers: answersByGuest})
             quizRef.update({
-              scores
+              scores: latestScores
             }).then(snap => {
-              this.setState({savedScore: true, }, () => setTimeout(() => {
+              this.setState({savedScore: true,scores: latestScores }, () => setTimeout(() => {
                 this.setState({showCreateQuizPopup: true})
               }, 2000))}
               );
-        }
+            });
+            }
+      
         else 
        this.setState({totalScore: isRight ? totalScore + 1 : totalScore, activeQuestion: answers[activeItem].question,
     activeItem: activeItem + 1})
