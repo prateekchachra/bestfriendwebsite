@@ -163,7 +163,6 @@ class Quiz extends Component {
       receiveAnswerFromClickEvent= (id, answerId, isRight) => {
 
 
-        
         const {activeItem, guestName, totalScore, answers,scores, answersByGuest, quizRef} = this.state;
 
         ReactGA.event({
@@ -171,7 +170,6 @@ class Quiz extends Component {
                   action: 'Clicked a question while solving the quiz',
                   value: activeItem
                 });
-
         answersByGuest.push({answer: answerId, question: id})
         if(activeItem ===20){
            let netTotal = isRight ? totalScore + 1 : totalScore
@@ -179,7 +177,7 @@ class Quiz extends Component {
 
           quizRef.once('value').then(snapshot => {
             let data = snapshot.val() ? snapshot.val() : null;
-          let latestScores = data.scores  ? [...data.scores] : []
+          let latestScores = data && data.scores  ? [...data.scores] : []
           latestScores.push({name: guestName, score:netTotal, answers: answersByGuest})
             quizRef.update({
               scores: latestScores
@@ -191,10 +189,13 @@ class Quiz extends Component {
             });
             }
       
-        else 
-       this.setState({totalScore: isRight ? totalScore + 1 : totalScore, activeQuestion: answers[activeItem].question,
-    activeItem: activeItem + 1})
-      }
+            else 
+
+    {       
+      this.setState({totalScore: isRight ? totalScore + 1 : totalScore, activeQuestion: answers[activeItem].question,
+        activeItem: activeItem + 1})
+    } 
+          }
  
     
     render(){

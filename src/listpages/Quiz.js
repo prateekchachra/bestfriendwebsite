@@ -114,9 +114,18 @@ class Quiz extends Component {
 
       const quizzesRef = databaseRef.child("quizzes")
           
+      let filteredAnswerObj = {}
+      answers.map(answer => {
+            filteredAnswerObj[answer.question] = answer.answer
+          })
+        let filteredAnswers = []
+        Object.keys(filteredAnswerObj).map(ques => {
+          filteredAnswers.push({question: ques, answer: filteredAnswerObj[ques]})
+        }) 
+
         quizzesRef.push({
           name: this.props.main.name,
-          answers,
+          answers: filteredAnswers,
           scores: []
         }).then(snap => {
 
