@@ -46,7 +46,7 @@ class RouterComponent extends React.Component {
     }
 
     componentDidMount() {
-      ReactGA.initialize('UA-157372438-2');
+      ReactGA.initialize('UA-168682284-1');
    }
   
     render()
