@@ -33,13 +33,13 @@ class Footer extends Component {
               <div className='col-1 col-sm-2 col-lg-2 '></div>
               <div className='col-10 col-sm-8 col-lg-8'>
           <p className='text-center'>
-          {/* <AdSense.Google
+          <AdSense.Google
                 client='ca-pub-4735074613807586'
                 slot='9097993451'
                 style={{ display: 'block' }}
                 format='auto'
                 responsive='true'
-              /> */}
+              />
           </p>
 
               </div>
