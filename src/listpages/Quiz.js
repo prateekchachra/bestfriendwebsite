@@ -259,7 +259,7 @@ class Quiz extends Component {
                 <textarea
                 onChange={(event) => {}}
                 ref={(textarea) => this.textArea = textarea}
-                value={`${window.location.origin}/quiz/${quizKey.slice(1)}`}
+                value={`https://moviemantra.live/quiz/${quizKey.slice(1)}`}
                 className='form-control' />
                 <div className='text-center' style={{marginTop: 12, marginBottom: 12}}>
 
