@@ -94,7 +94,7 @@ class Quiz extends Component {
         document.execCommand("copy")
         this.setState({copySuccess: true})
       }
-    
+     
       receiveAnswerFromClickEvent= (id, answerId) => {
         const {answers, questionsList, askedQuestions, activeItem} = this.state;
           
@@ -103,7 +103,11 @@ class Quiz extends Component {
             action: 'Clicked on question',
             value: activeItem
           });
-      
+          if(answers[activeItem - 2] && answers[activeItem - 2].question === id) {
+            
+            return;
+          }
+
         askedQuestions.push(questionsList[0])
         answers.push({question: id,answer: answerId})
 
@@ -114,18 +118,10 @@ class Quiz extends Component {
 
       const quizzesRef = databaseRef.child("quizzes")
           
-      let filteredAnswerObj = {}
-      answers.map(answer => {
-            filteredAnswerObj[answer.question] = answer.answer
-          })
-        let filteredAnswers = []
-        Object.keys(filteredAnswerObj).map(ques => {
-          filteredAnswers.push({question: ques, answer: filteredAnswerObj[ques]})
-        }) 
 
         quizzesRef.push({
           name: this.props.main.name,
-          answers: filteredAnswers,
+          answers,
           scores: []
         }).then(snap => {
 
