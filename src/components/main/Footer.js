@@ -55,33 +55,8 @@ class Footer extends Component {
                   
                 }}>
 
-                <p style={{marginTop: 24}}>
-
-                  <p>
-                  <p>Select your Country, Enter your Name, Email, Create your Quiz and Share it with your friends on Facebook or Whatsapp. Once your friends attempt the quiz you will see the results on leaderboard. </p>
-                <p>Movie Mantra Is a fun quiz site which lets you know who is your true friend and who knows the most about you. You can create your own quiz and share it with you friends and family. This is a hand crafted puzzle that can be played anywhere easily. We promise to bring you more of these amazing quizzes in the future. Till then enjoy playing the best friend quiz. You can share these quizzes with your friends via whatsapp, instagram and other social media apps.</p>
-             
-                  <ul className='list-group'>
-                  <li class="list-group-item list-group-item-success">1. How do I check my scoreboard?</li>
-                  <li class="list-group-item">Open your quiz URL in the same browser where you had created the quiz. Then scroll down to check your scoreboard. 
-                  For example: If you have created quiz in chrome browser, then open your quiz URL in chrome and scroll down to check your scoreboard.</li>
-                  <li class="list-group-item list-group-item-primary">2. How do I create my quiz?</li>
-                  <li class="list-group-item">Creating your quiz is very simple. Even a toddler can also create his own quiz. Just follow the steps mentioned steps on the home page to play the quiz.</li>
-                  <li class="list-group-item list-group-item-danger">3. How do I delete my quiz?</li>
-                  <li class="list-group-item">Simply visit the link on the same browser. You will find an option to delete your quiz. From there you can simply delete the quiz.</li>
-                    
-                  </ul>
-               
-               <p> If you have any other questions you can simply reach us via E-mail. We will be happy to answer all your queries.
-               </p>
-                <p>
-                For any questions related to the quizzes, privacy policy or any random thing:
-                You can directly reach us via mail at digitrexmedia123@gmail.com
-                  </p>
-                  </p>
                 <Translate id="footer.description"/>
                
-                </p>
                 </div>
                 <div className='col-2 col-sm-2 col-lg-4 '></div>
                 </div>
