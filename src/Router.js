@@ -79,6 +79,8 @@ class RouterComponent extends React.Component {
         <Route path="/faq" component={FrequentlyAsked} />
         <Route path="/quiz/:quizId" component={ScoringQuiz} />
         <Route path="/quiz-result/:name/:quizId" component={QuizResult} />
+        <Route path="*" component={App} >
+          </Route>
       </Switch>
       <Footer />
     </Router>
