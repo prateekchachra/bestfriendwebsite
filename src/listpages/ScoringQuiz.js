@@ -224,7 +224,7 @@ class Quiz extends Component {
         <Modal.Body>
         <button type="button"
         className="btn btn-block" style={{
-                    backgroundColor: 'yellowgreen',
+                    backgroundColor: '#e4405f',
                     color: 'white',
                     marginTop: 48,
                     marginBottom: 48,
@@ -234,7 +234,7 @@ class Quiz extends Component {
                 }} onClick={() => {
                   
                     ReactGA.event({
-                      category: 'Button Click',
+                      category: 'Button Click From Popup',
                       action: 'Create A Quiz After Solving One',
                       value: 3
                     });
@@ -415,7 +415,7 @@ class Quiz extends Component {
                 ]}
                 />
                   <button type="button" className="btn btn-block" style={{
-                    backgroundColor: 'yellowgreen',
+                    backgroundColor: '#e4405f',
                     color: 'white',
                     marginTop: -96,
                     marginBottom: 24,

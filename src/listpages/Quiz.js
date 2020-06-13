@@ -52,7 +52,7 @@ class Quiz extends Component {
         props.history.push('/')
         }
       }
-        ReactGA.pageview(window.location.pathname + window.location.search);
+        ReactGA.pageview(window.location.pathname + window.location.search + (savedQuiz ? 'finalshare' : ''));
 
         this.state = {
             questionsList: _.shuffle(questions),
