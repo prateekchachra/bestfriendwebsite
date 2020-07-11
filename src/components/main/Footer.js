@@ -29,7 +29,7 @@ class Footer extends Component {
             
       componentDidMount() {
 
-        this.useDfpSlot('/22047497106/tryad', [480, 320],'div-gpt-ad-1593884414758-0',)
+        this.useDfpSlot('/22047497106/tryad', [336, 280],'div-gpt-ad-1593884414758-0',)
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
       }
