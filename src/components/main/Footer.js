@@ -53,7 +53,6 @@ class Footer extends Component {
           <p className='text-center'>
           <div
         id="div-gpt-ad-1593884414758-0"
-        style={{ width: '480px', height: '320px' }}
       />
           </p>
 
