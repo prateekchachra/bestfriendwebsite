@@ -53,7 +53,7 @@ class Footer extends Component {
       
           <div
         id="div-gpt-ad-1594581182986-0"
-         style={{ width: '480px', height: '320px', alignSelf: 'center' }}
+         style={{ maxWidth: '480px', maxHeight: '320px', alignSelf: 'center' }}
       />
 
               </div>
