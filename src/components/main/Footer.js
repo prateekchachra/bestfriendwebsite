@@ -52,7 +52,7 @@ class Footer extends Component {
               <div className='col-10 col-sm-8 col-lg-8'>
           <p className='text-center'>
           <div
-        id="div-gpt-ad-1593884414758-0"
+        id="div-gpt-ad-1594552507396-0"
       />
           </p>
 
