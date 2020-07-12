@@ -29,7 +29,7 @@ class Footer extends Component {
             
       componentDidMount() {
 
-        this.useDfpSlot('/22047497106/try3', [480,320],'div-gpt-ad-1594581182986-0',)
+        this.useDfpSlot('/22047497106/try3', [336,280],'div-gpt-ad-1594581182986-0',)
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
       }
@@ -53,7 +53,7 @@ class Footer extends Component {
       
           <div
         id="div-gpt-ad-1594581182986-0"
-         style={{ maxWidth: '480px', maxHeight: '320px', alignSelf: 'center' }}
+         style={{ maxWidth: '336px', maxHeight: '280px', alignSelf: 'center' }}
       />
 
               </div>
