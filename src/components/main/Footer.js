@@ -50,12 +50,11 @@ class Footer extends Component {
               <div className='row'>
               <div className='col-1 col-sm-2 col-lg-2 '></div>
               <div className='col-10 col-sm-8 col-lg-8'>
-          <p className='text-center'>
+      
           <div
         id="div-gpt-ad-1594581182986-0"
-         style={{ width: '480px', height: '320px' }}
+         style={{ width: '480px', height: '320px', alignSelf: 'center' }}
       />
-          </p>
 
               </div>
               <div className='col-1 col-sm-2 col-lg-2 '></div>
