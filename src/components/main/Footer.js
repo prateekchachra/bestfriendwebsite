@@ -29,7 +29,7 @@ class Footer extends Component {
             
       componentDidMount() {
 
-        this.useDfpSlot('/22047497106/try2', ['fluid'],'div-gpt-ad-1594552507396-0',)
+        this.useDfpSlot('/22047497106/try3', [336,280],'div-gpt-ad-1594581182986-0',)
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
       }
@@ -52,7 +52,7 @@ class Footer extends Component {
               <div className='col-10 col-sm-8 col-lg-8'>
           <p className='text-center'>
           <div
-        id="div-gpt-ad-1594552507396-0"
+        id="div-gpt-ad-1594581182986-0"
       />
           </p>
 
