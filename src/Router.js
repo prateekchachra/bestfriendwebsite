@@ -13,6 +13,7 @@ import Header from './components/main/Header';
 import Footer from './components/main/Footer';
 import FrequentlyAsked from './components/common/FrequentlyAsked';
 import AboutUs from './components/common/AboutUs';
+import Blog from './components/common/Blog';
 import PrivacyPolicy from './components/common/PrivacyPolicy';
 import Contact from './components/common/Contact';
 import ScoringQuiz from './listpages/ScoringQuiz';
@@ -77,6 +78,7 @@ class RouterComponent extends React.Component {
         <Route path="/privacy" component={PrivacyPolicy} />
         <Route path="/about-us" component={AboutUs} />
         <Route path="/faq" component={FrequentlyAsked} />
+        <Route path="/blog" component={Blog} />
         <Route path="/quiz/:quizId" component={ScoringQuiz} />
         <Route path="/quiz-result/:name/:quizId" component={QuizResult} />
         <Route path="*" component={App} >

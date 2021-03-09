@@ -28,5 +28,62 @@
 }
 
 .insta-button{
-    background: linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+    background-color: #E4405F;
+    height: 70px;
+}
+
+.insta-button:hover{
+    background-color: #2f3542;
+    height: 70px;
+}
+.fb-button{
+    background-color: #3b5998;
+    height: 70px;
+}
+
+.fb-button:hover{
+    background-color: #2f3542;
+    height: 70px;
+}
+.wa-button{
+    background-color: #25d366;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wa-button:hover{
+    background-color: #2f3542;
+    height: 70px;
+    text-decoration: none;
+}
+.msgr-button{
+    background-color: #0084ff;
+    height: 70px;
+}
+
+.msgr-button:hover{
+    background-color: #2f3542;
+    height: 70px;
+}
+.tw-button{
+    background-color: #1da1f2;
+    height: 70px;
+}
+
+.tw-button:hover{
+    background-color: #2f3542;
+    height: 70px;
+}
+.snap-button{
+    background-color: #fffc00;
+    color: #333333;
+    height: 70px;
+}
+
+.snap-button:hover{
+    background-color: #2f3542;
+    color: #fff;
+    height: 70px;
 }

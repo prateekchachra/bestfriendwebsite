@@ -3,6 +3,9 @@ import Box from '../components/main/Box';
 import styles from '../assets/styles/quiz.css';
 import firebase from '../utils/firebaseConfig'
 import {saveName} from '../listpages/actions'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInstagram, faFacebook, faWhatsapp,
+  faFacebookMessenger, faSnapchatGhost, faTwitter} from '@fortawesome/free-brands-svg-icons'
 import {OverlayTrigger, Popover, Modal} from 'react-bootstrap';
 import * as LoadScript from 'react-load-script';
 import {connect} from 'react-redux'
@@ -275,32 +278,122 @@ class Quiz extends Component {
 
               
                   <div className='row'>
-                    <div className='col-sm-6'>
                     <a target='_blank'  
-                    href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know how well do you know him/her? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His/Her Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A https://moviemantra.live/quiz/${quizKey.slice(1)} %0A%0A%0A%0A%F0%9F%8E%AF *Click on the link below and create your own quiz!* %0A%0A https://moviemantra.live`} role="button" className="btn btn-block" style={{
-                    backgroundColor: '#25d366',
+                    className='wa-button'
+                    href={`whatsapp://send?text=%F0%9F%A4%97 *${this.props.main.name}* wants to know how well do you know him/her? %F0%9F%A4%97 %0A%F0%9F%8E%AF *Play His/Her Friendship Quiz Now!* %F0%9F%A5%87%F0%9F%A5%88%F0%9F%A5%89 %0A%0A%0A%F0%9F%A4%AF%F0%9F%91%87%F0%9F%91%87%F0%9F%91%87%F0%9F%A4%AF%0A https://moviemantra.live/quiz/${quizKey.slice(1)} %0A%0A%0A%0A%F0%9F%8E%AF *Click on the link below and create your own quiz!* %0A%0A https://moviemantra.live`} role="button"
+                    style={{
                     color: 'white',
-                    alignItems: 'center',
-                    marginTop: 6,
+                    width: '100%',
+                    height: 70,
+                    
                   }}>
                    <img src={require('../assets/img/whatsapp.svg')}
                   style={{width: 18, marginRight: 4,marginBottom: 2}} />
                    Share on Whatsapp</a>
+              
                     </div>
-                    <div className='col-sm-6'>
-                    <button type="button" className="btn btn-block insta-button" style={{
+                  <div className='row'>
+                  <button type="button" className="btn btn-block fb-button" style={{
+                color: 'white',
                 
-                    color: 'white',
-                    marginTop: 6
-                  }} onClick={() => {
-                    ReactGA.event({
-                      category: 'Social Button Click',
-                      action: 'Instagram Social Button Clicked',
-                      value: this.state.activeItem
-                    });
-                    this.setState({showInstagramModal: true})}}>Add To Instagram Bio</button>
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faFacebook} style={{marginRight: 12, fontSize: 16}}/>
+                  Share Quiz on Facebook
+                </button>
                     </div>
-                  </div>
+                  <div className='row'>
+                  <button type="button" className="btn btn-block wa-button" style={{
+                
+                color: 'white',
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faWhatsapp} style={{marginRight: 12, fontSize: 16}}/>
+                  Share on WhatsApp Status
+                </button>
+                    </div>
+                  <div className='row'>
+                  <button type="button" className="btn btn-block msgr-button" style={{
+                
+                color: 'white',
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faFacebookMessenger} style={{marginRight: 12, fontSize: 16}}/>
+                  Send Quiz in Messenger
+                </button>
+                    </div>
+                  <div className='row'>
+                  <button type="button" className="btn btn-block insta-button" style={{
+                
+                color: 'white',
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faInstagram} style={{marginRight: 12, fontSize: 16}}/>
+                  Share on Instagram Bio
+                </button>
+                    </div>
+                  <div className='row'>
+                  <button type="button" className="btn btn-block snap-button" style={{
+                
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faSnapchatGhost} style={{marginRight: 12, fontSize: 16}}/>
+                  Share Quiz on Snapchat
+                </button>
+                    </div>
+                  <div className='row'>
+                  <button type="button" className="btn btn-block tw-button" style={{
+                
+                color: 'white',
+              }} 
+              
+              onClick={() => {
+                ReactGA.event({
+                  category: 'Social Button Click',
+                  action: 'Instagram Social Button Clicked',
+                  value: this.state.activeItem
+                });
+                this.setState({showInstagramModal: true})}}>
+                  <FontAwesomeIcon icon={faTwitter} style={{marginRight: 12, fontSize: 16}}/>
+                  Share Quiz on Twitter
+                </button>
+                    </div>
+                 
                   <div className="addthis_inline_share_toolbox"
                    style={{marginTop: 24}}
                   data-url={`https://moviemantra.live/quiz/${quizKey.slice(1)}`} data-title={`${this.props.main.name} wants to know how well do you know him/her? Play His/Her Friendship Quiz Now!`}
